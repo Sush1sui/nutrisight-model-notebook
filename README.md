@@ -41,10 +41,6 @@ This document describes the training methodology and results for a deep learning
 
 ```
 Total Images: 43,400
-├── Training Set: 34,720 images (80%)
-├── Validation Set: 4,340 images (10%)
-└── Test Set: 4,340 images (10%)
-
 Food Categories: 124 classes
 ├── Examples: Pizza, Hamburger, Sushi, Tacos, Ice Cream, etc.
 ├── Images per class: ~350 images (balanced distribution)
@@ -53,8 +49,9 @@ Food Categories: 124 classes
 
 ### Data Source
 
-- **Base Dataset**: Food-101 (101 food categories)
-- **Extended Dataset**: Additional 23 food categories (Filipino cuisine focus)
+- **Base Dataset**: Selected categories from Food-101 (not all 101 classes are included)
+- **Extended Dataset**: Additional images collected from our custom/farmed datasets (locally sourced)
+- **Note**: The final 124-class dataset is a mix of selected Food-101 categories and our own farmed/custom images — some Food-101 classes were omitted and replaced/augmented by custom data.
 - **Split Method**: Stratified random split to ensure balanced class distribution
 
 ---

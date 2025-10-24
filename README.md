@@ -67,7 +67,7 @@ Food Categories: 124 classes
 3. **Pre-trained Weights**: Leverages ImageNet knowledge (transfer learning)
 4. **Mobile-Friendly**: Suitable for deployment on resource-constrained devices
 
-**Architecture Overview**:
+**Architecture Overview**:s
 
 ```
 Input Image (252×252×3)

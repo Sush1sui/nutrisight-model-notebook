@@ -1,0 +1,16 @@
+[
+  {
+    "class": "food",
+    "precision": 98.4126984126984,
+    "recall": 100.0,
+    "f1_score": 99.2,
+    "support": 124.0
+  },
+  {
+    "class": "not_food",
+    "precision": 100.0,
+    "recall": 98.38709677419355,
+    "f1_score": 99.1869918699187,
+    "support": 124.0
+  }
+]

@@ -10,14 +10,14 @@
 
 ## 📊 Executive Summary
 
-This document describes the training methodology and results for a deep learning model capable of recognizing **124 different food items** from images with **87.60% accuracy**.
+This document describes the training methodology and results for a deep learning model capable of recognizing **124 different food items** from images with **86.87% accuracy** (Test Top-1).
 
 ### Key Results
 
-- **Test Accuracy**: 87.60%
-- **Top-5 Accuracy**: 96.96% (correct answer in top 5 predictions)
-- **High-Confidence Predictions**: 98.38% accuracy (when model confidence ≥80%)
-- **Training Time**: ~24 epochs (~27 hours on DirectML GPU)
+- **Test Accuracy (Top-1)**: 86.87%
+- **Test Top-5 Accuracy**: 97.30% (correct answer in top 5 predictions)
+- **High-Confidence Predictions (Test, ≥80%)**: 3581 / 4340 (82.51% of test samples); accuracy among these high-confidence predictions: 95.14%
+- **Epochs Trained**: 17 (best model saved at epoch 17)
 - **Model Size**: 45MB (ONNX format for deployment)
 
 ---
@@ -106,7 +106,7 @@ Output: Class Probabilities (124 values)
 - Purpose: Adapt final layers to food recognition task
 - Learning Rate: 1×10⁻³
 
-**Phase 2: Fine-tuning (Epochs 4-24)**
+**Phase 2: Fine-tuning (Epochs 4-17)**
 
 - Unfreeze entire network
 - Train all layers with lower learning rate
@@ -185,14 +185,24 @@ Output: Class Probabilities (124 values)
 
 ### 4. Training Configuration
 
-| Hyperparameter    | Value              | Rationale                               |
-| ----------------- | ------------------ | --------------------------------------- |
-| **Optimizer**     | AdamW              | Adaptive learning rates + weight decay  |
-| **Learning Rate** | 1×10⁻³ → 1×10⁻⁴    | High warmup, lower fine-tuning          |
-| **Batch Size**    | 16                 | Balance memory and gradient stability   |
-| **Epochs**        | 50 (stopped at 24) | Early stopping prevented overfitting    |
-| **Loss Function** | Cross-Entropy      | Standard for multi-class classification |
-| **LR Scheduler**  | Cosine Annealing   | Smooth learning rate decay              |
+| Hyperparameter                | Value / Defaults                                                                 | Notes & Rationale                                                                                      |
+| ----------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| **Optimizer**                 | SGD (baseline): momentum=0.9, nesterov=True, weight_decay=1e-4                   | Baseline training used SGD with momentum for stability and to avoid DirectML CPU-fallbacks with AdamW. |
+|                               | AdamW (experiments): betas=(0.9,0.999), weight_decay=1e-2                        | AdamW used in some optimized notebooks for faster convergence; can trigger CPU fallbacks on DirectML.  |
+| **Learning rate (head→fine)** | Head warmup: 1e-3 (epochs 1–3) → Fine-tune: 1e-4 (epochs 4+)                     | Short head warmup lets classifier adapt; lower LR when unfreezing prevents large weight updates.       |
+| **LR scheduler**              | CosineAnnealingLR (T_max = effective training epochs) + linear warmup (3 epochs) | Smooth decay after warmup; min_lr typically set ≈ 1e-6.                                                |
+| **Batch size**                | 16                                                                               | Balance GPU memory and gradient stability.                                                             |
+| **Epochs / early stop**       | max 50 (patience=15) — baseline stopped at epoch 17                              | Early stopping on validation Top-1 to prevent overfitting.                                             |
+| **Loss**                      | Cross-Entropy with label smoothing ε=0.1                                         | Label smoothing improves calibration and reduces overconfidence.                                       |
+| **Regularization**            | Dropout p=0.3; Mixup α=0.2; Weight decay per-optimizer (SGD 1e-4 / AdamW 1e-2)   | Mixup + dropout help generalization across visually-similar classes.                                   |
+| **Input size**                | 252×252 px                                                                       | Matches EfficientNet-B3 resolution used for pretrained weights.                                        |
+
+Notes:
+
+- Warmup: we first train the classification head for a few epochs (default 3) at the higher learning rate to adapt the head, then unfreeze and continue fine-tuning with a lower LR and Cosine annealing.
+- Weight-decay: the baseline SGD runs use 1e-4; AdamW experiments use a larger weight-decay (e.g., 1e-2) because Adam-style optimizers interact differently with weight decay.
+- DirectML note: if you run training on DirectML and observe warnings about operators (e.g., aten::lerp) falling back to CPU when using AdamW, prefer SGD for full-GPU throughput.
+- These hyperparameters were chosen to balance stable convergence, robust generalization (mixup/label-smoothing), and reproducibility across experiments.
 
 ---
 
@@ -204,7 +214,7 @@ Output: Class Probabilities (124 values)
 
 - **Patience**: 15 epochs
 - **Metric**: Validation Top-1 Accuracy
-- **Result**: Training stopped at epoch 24 (best: epoch 24)
+- **Result**: Training stopped at epoch 17 (best: epoch 17)
 
 **Why It Matters**:
 
@@ -222,19 +232,12 @@ Output: Class Probabilities (124 values)
 
 ```
 Phase 1 (Head Warmup - Epochs 1-3):
-├── Val Accuracy: 53.02% → 57.88% → 59.79%
+├── Validation accuracy improved quickly during head warmup.
 └── Fast initial learning
 
-Phase 2 (Full Fine-tuning - Epochs 4-24):
-├── Epoch 4: 77.51% (↑17.7% jump after unfreezing!)
-├── Epoch 7: 84.40%
-├── Epoch 10: 85.44%
-├── Epoch 15: 86.54%
-├── Epoch 21: 87.17%
-└── Epoch 24: 87.19% ← Best Model (stopped here)
-
-Plateau Detection:
-└── Epochs 21-26: Fluctuating 86.5-87.2% (convergence)
+Phase 2 (Full Fine-tuning - Epochs 4-17):
+├── Strong improvements after unfreezing; training stopped early when validation Top-1 plateaued.
+└── Best validation Top-1 accuracy: 85.90% (epoch 17)
 ```
 
 #### Training Speed
@@ -257,21 +260,21 @@ Reason for slowdown: Full model backpropagation (12M params)
 
 ### Test Set Results (4,340 images)
 
-| Metric                | Value  | Interpretation                       |
-| --------------------- | ------ | ------------------------------------ |
-| **Top-1 Accuracy**    | 87.60% | Correct on first guess 87.6% of time |
-| **Top-5 Accuracy**    | 96.96% | Correct answer in top 5: 97% of time |
-| **Precision (macro)** | 87.82% | Low false positive rate              |
-| **Recall (macro)**    | 87.60% | Low false negative rate              |
-| **F1 Score (macro)**  | 87.47% | Balanced precision/recall            |
+| Metric                | Value  | Interpretation                          |
+| --------------------- | ------ | --------------------------------------- |
+| **Top-1 Accuracy**    | 86.87% | Correct on first guess 86.87% of time   |
+| **Top-5 Accuracy**    | 97.30% | Correct answer in top 5: 97.30% of time |
+| **Precision (macro)** | 87.09% | Macro precision on test set             |
+| **Recall (macro)**    | 86.87% | Macro recall on test set                |
+| **F1 Score (macro)**  | 86.76% | Balanced precision/recall               |
 
 ### Confidence Analysis
 
-**High-Confidence Predictions** (≥80% confidence):
+**High-Confidence Predictions (Test, ≥80% confidence):**
 
-- **Percentage**: 34.12% of all predictions
-- **Accuracy**: 98.38% (extremely reliable!)
-- **Use Case**: Can trust these predictions without human review
+- **Count / Percentage**: 3581 / 4340 (82.51% of test predictions)
+- **Accuracy among high-confidence predictions**: 95.14%
+- **Use Case**: These predictions can be treated as high-trust; consider human review for the remainder.
 
 **Medium-Confidence Predictions** (50-80% confidence):
 
@@ -319,11 +322,11 @@ Foods with more variability or visual similarity:
 
 ## 🔄 Comparison: Training vs Validation vs Test
 
-| Metric         | Train   | Validation | Test   |
-| -------------- | ------- | ---------- | ------ |
-| Top-1 Accuracy | 99.74%  | 87.19%     | 87.60% |
-| Top-5 Accuracy | 100.00% | 96.96%     | 96.96% |
-| F1 Score       | 99.74%  | 87.13%     | 87.47% |
+| Metric         | Train  | Validation | Test   |
+| -------------- | ------ | ---------- | ------ |
+| Top-1 Accuracy | 99.66% | 85.90%     | 86.87% |
+| Top-5 Accuracy | 99.99% | 96.94%     | 97.30% |
+| F1 Score       | 99.66% | 85.84%     | 86.76% |
 
 **Observations**:
 
@@ -346,11 +349,15 @@ Foods with more variability or visual similarity:
 - **Concept**: Use knowledge from ImageNet (1000 classes) for food recognition
 - **Benefit**: Reduces training time and improves accuracy with limited data
 
-### 3. **Backpropagation with Adam Optimizer**
+### 3. Backpropagation & optimizer choices
 
-- **Purpose**: Update model weights to minimize loss
-- **Algorithm**: Adaptive moment estimation (Adam)
-- **Advantage**: Handles sparse gradients and noisy data well
+- **Baseline run optimizer (SGD)**: The baseline training run `runs/efficientnet_b3_baseline-20251030-102332` used SGD with momentum (Nesterov) and weight decay. SGD was chosen in that notebook to match the established training regime and to avoid DirectML CPU-fallbacks that can occur with some AdamW operators.
+
+- **Other runs (AdamW)**: Some optimized training notebooks (for example, `train_efficientnet_b3_optimized_food_not_food.ipynb`) use AdamW for weight decay-aware adaptive updates. AdamW is available in the repo and used for experiments, but on DirectML it can trigger CPU fallbacks for certain ops (see note below).
+
+- **Why both exist**: AdamW can offer faster convergence on some tasks; SGD (with momentum) is often more stable and avoids DirectML-related operator fallbacks on AMD/Intel GPUs.
+
+Note: If you run training on DirectML and see warnings about aten::lerp or other ops falling back to CPU when using AdamW, prefer SGD for full-GPU training throughput.
 
 ### 4. **Cross-Entropy Loss Function**
 
@@ -467,9 +474,9 @@ nutrisight_model_training/
 
 This study successfully developed a **high-accuracy food recognition model** using deep learning and transfer learning techniques. The final model achieves:
 
-- ✅ **87.60% top-1 accuracy** on 124 food categories
-- ✅ **96.96% top-5 accuracy** (almost always correct in top 5 guesses)
-- ✅ **98.38% accuracy** on high-confidence predictions
+- ✅ **86.87% top-1 accuracy** on 124 food categories (Test set)
+- ✅ **97.30% top-5 accuracy** (almost always correct in top 5 guesses)
+- ✅ **95.14% accuracy** on high-confidence (Test, ≥80%) predictions
 - ✅ **Production-ready** ONNX model for web/mobile deployment
 - ✅ **Robust performance** across validation and test sets (no overfitting)
 
@@ -477,12 +484,12 @@ The model is suitable for deployment in **nutritional tracking applications**, *
 
 ### Statistical Significance
 
-With 4,340 test images and 87.60% accuracy, the model correctly classifies **3,802 out of 4,340 images**, demonstrating strong real-world applicability for food recognition tasks.
+With 4,340 test images and 86.87% accuracy, the model correctly classifies **3,770 out of 4,340 images**, demonstrating strong real-world applicability for food recognition tasks.
 
 ---
 
 **Model Training Date**: October 2024  
-**Training Duration**: ~27 hours  
+**Training Duration**: 17 epochs (see run logs for wall-clock time)  
 **Hardware**: DirectML-compatible GPU  
 **Framework**: PyTorch 2.x + torchvision
 

@@ -1,0 +1,57 @@
+{
+  "model": "efficientnet_b3",
+  "num_classes": 2,
+  "image_size": 252,
+  "total_epochs_trained": 13,
+  "best_epoch": 8,
+  "best_val_top1": 98.79032258064517,
+  "train_results": {
+    "total": 9528,
+    "top1_acc": 99.86355900764465,
+    "accuracy": 99.86356003358522,
+    "f1_macro": 99.86355991184797,
+    "f1_weighted": 99.86355991184797,
+    "precision_macro": 99.86373799520304,
+    "precision_weighted": 99.86373799520305,
+    "recall_macro": 99.86356003358523,
+    "recall_weighted": 99.86356003358522,
+    "top1_conf80_count": 9492,
+    "top1_conf80_percent": 99.62216624685138
+  },
+  "val_results": {
+    "total": 248,
+    "top1_acc": 98.79032373428345,
+    "accuracy": 98.79032258064517,
+    "f1_macro": 98.79030291205306,
+    "f1_weighted": 98.79030291205306,
+    "precision_macro": 98.79349593495934,
+    "precision_weighted": 98.79349593495934,
+    "recall_macro": 98.79032258064517,
+    "recall_weighted": 98.79032258064517,
+    "top1_conf80_count": 244,
+    "top1_conf80_percent": 98.38709677419355
+  },
+  "test_results": {
+    "total": 248,
+    "top1_acc": 99.19354915618896,
+    "accuracy": 99.19354838709677,
+    "f1_macro": 99.19354838709677,
+    "f1_weighted": 99.19354838709677,
+    "precision_macro": 99.19354838709677,
+    "precision_weighted": 99.19354838709677,
+    "recall_macro": 99.19354838709677,
+    "recall_weighted": 99.19354838709677,
+    "top1_conf80_count": 245,
+    "top1_conf80_percent": 98.79032258064517
+  },
+  "files": {
+    "best_model": "D:\\VSC FILES\\testtrain\\runs\\efficientnet_b3_food_not_food-20251031-220332\\best_efficientnet_b3.pth",
+    "onnx_model": "D:\\VSC FILES\\testtrain\\runs\\efficientnet_b3_food_not_food-20251031-220332\\model.onnx",
+    "class_names": "D:\\VSC FILES\\testtrain\\runs\\efficientnet_b3_food_not_food-20251031-220332\\class_names.json",
+    "training_curves": "D:\\VSC FILES\\testtrain\\runs\\efficientnet_b3_food_not_food-20251031-220332\\training_curves.png",
+    "per_class_accuracy": "D:\\VSC FILES\\testtrain\\runs\\efficientnet_b3_food_not_food-20251031-220332\\per_class_accuracy.json",
+    "per_class_metrics": "D:\\VSC FILES\\testtrain\\runs\\efficientnet_b3_food_not_food-20251031-220332\\per_class_metrics.json",
+    "classification_report": "D:\\VSC FILES\\testtrain\\runs\\efficientnet_b3_food_not_food-20251031-220332\\classification_report.txt",
+    "confusion_matrix": "D:\\VSC FILES\\testtrain\\runs\\efficientnet_b3_food_not_food-20251031-220332\\confusion_matrix.png"
+  }
+}

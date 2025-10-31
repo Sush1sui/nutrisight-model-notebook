@@ -1,0 +1,12 @@
+[
+  {
+    "class": "food",
+    "accuracy": 99.19355010986328,
+    "total": 124
+  },
+  {
+    "class": "not_food",
+    "accuracy": 99.19355010986328,
+    "total": 124
+  }
+]

@@ -1,0 +1,11 @@
+Classification Report (Test Set)
+================================================================================
+
+              precision    recall  f1-score   support
+
+        food     0.9919    0.9919    0.9919       124
+    not_food     0.9919    0.9919    0.9919       124
+
+    accuracy                         0.9919       248
+   macro avg     0.9919    0.9919    0.9919       248
+weighted avg     0.9919    0.9919    0.9919       248

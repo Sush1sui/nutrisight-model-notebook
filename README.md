@@ -2,23 +2,62 @@
 
 **Project**: NutriSight Food Recognition System  
 **Model**: EfficientNet-B3 with Transfer Learning  
-**Task**: Multi-class Image Classification (124 Food Categories)  
-**Date**: October 2024  
 **Framework**: PyTorch + DirectML (AMD/Intel GPU Support)
 
 ---
 
-## 📊 Executive Summary
+## Runs at a glance
 
-This document describes the training methodology and results for a deep learning model capable of recognizing **124 different food items** from images with **86.87% accuracy** (Test Top-1).
+Two recent runs are available — listed here for quick reference. See the detailed sections below for full training configuration and per-class metrics.
 
-### Key Results
+### 1. 124-class Food Classifier
 
-- **Test Accuracy (Top-1)**: 86.87%
-- **Test Top-5 Accuracy**: 97.30% (correct answer in top 5 predictions)
-- **High-Confidence Predictions (Test, ≥80%)**: 3581 / 4340 (82.51% of test samples); accuracy among these high-confidence predictions: 95.14%
-- **Epochs Trained**: 17 (best model saved at epoch 17)
-- **Model Size**: 45MB (ONNX format for deployment)
+**Folder**: `efficientnet_b3_baseline-20251030-102332/`
+
+- Classes: 124 food categories
+- Best validation Top-1: **85.90%** | Test Top-1: **86.87%** | Test Top-5: **97.30%**
+- Epochs trained: 17 (best epoch = 17)
+- Dataset: 34,720 train / 4,340 val / 4,340 test images
+- Model size: ~45MB (ONNX)
+
+**Files**:
+
+- `best_efficientnet_b3.pth` — PyTorch checkpoint
+- `model.onnx` — ONNX export for deployment
+- `class_names.json` — 124 food category names
+- `per_class_accuracy.json`, `per_class_metrics.json` — Per-class performance
+- `classification_report.txt` — Detailed metrics
+- `summary.json` — Complete training statistics
+
+### 2. Food vs Not-Food (Binary Classifier)
+
+**Folder**: `efficientnet_b3_food_not_food-20251031-220332/`
+
+- Classes: 2 (food / not_food)
+- Best validation Top-1: **98.79%** | Test Top-1: **99.19%**
+- Epochs trained: 13 (best epoch = 8)
+- Dataset: 9,528 train / 248 val / 248 test images
+- Model size: ~45MB (ONNX)
+
+**Files**:
+
+- `best_efficientnet_b3.pth` — PyTorch checkpoint
+- `model.onnx` — ONNX export for deployment
+- `class_names.json` — Class names (food, not_food)
+- `per_class_accuracy.json`, `per_class_metrics.json` — Per-class performance
+- `classification_report.txt` — Detailed metrics
+- `summary.json` — Complete training statistics
+
+**Training notebooks**:
+
+- `train_efficientnet_b3_optimized.ipynb` — 124-class food training
+- `train_efficientnet_b3_optimized_food_not_foodv2.ipynb` — Binary food/not-food training
+
+**Inference & evaluation notebooks**:
+
+- `test_inference_nonfood_and_food.ipynb` — Test inference on binary model
+- `test_model_on_all_food_dataset_images.ipynb` — Test 124-class model
+- `confusion_matrix_all_classes.ipynb` — Generate confusion matrix
 
 ---
 
@@ -431,68 +470,86 @@ Note: If you run training on DirectML and see warnings about aten::lerp or other
 
 ---
 
-## 📚 References & Resources
-
-### Algorithms & Techniques
-
-1. **EfficientNet**: Tan & Le (2019) - "EfficientNet: Rethinking Model Scaling for CNNs"
-2. **Mixup**: Zhang et al. (2018) - "mixup: Beyond Empirical Risk Minimization"
-3. **Label Smoothing**: Szegedy et al. (2016) - "Rethinking Inception Architecture"
-4. **Transfer Learning**: Pan & Yang (2010) - "A Survey on Transfer Learning"
-
-### Frameworks & Tools
-
-- **PyTorch**: Deep learning framework
-- **torchvision**: Pre-trained models and image transforms
-- **torch-directml**: AMD/Intel GPU acceleration
-- **scikit-learn**: Evaluation metrics
-- **ONNX**: Model export for deployment
-
----
-
-## 📂 Project Files
+## Project Files
 
 ```
 nutrisight_model_training/
-├── train_efficientnet_b3_optimized.ipynb   # Training notebook
-├── README.md                                # This documentation
-└── efficientnet_b3_optimized-20251021-115920/
-    ├── best_efficientnet_b3.pth            # Best model checkpoint (PyTorch)
-    ├── model.onnx                          # Deployment model (ONNX)
-    ├── class_names.json                    # 124 food category names
-    ├── summary.json                        # Complete training statistics
-    ├── metrics_epoch.csv                   # Per-epoch metrics
-    ├── per_class_accuracy.json             # Accuracy for each food class
-    ├── per_class_metrics.json              # Precision/Recall per class
-    ├── classification_report.txt           # Detailed classification report
-    └── confusion_matrix.png                # Visual confusion matrix
+├── README.md                                           # This documentation
+│
+├── Training notebooks
+│   ├── train_efficientnet_b3_optimized.ipynb          # 124-class food training
+│   └── train_efficientnet_b3_optimized_food_not_foodv2.ipynb  # Binary classifier training
+│
+├── Inference & evaluation notebooks
+│   ├── test_inference_nonfood_and_food.ipynb          # Binary model inference
+│   ├── test_model_on_all_food_dataset_images.ipynb   # 124-class model testing
+│   └── confusion_matrix_all_classes.ipynb             # Generate confusion matrix
+│
+├── Model artifacts (124-class)
+│   └── efficientnet_b3_baseline-20251030-102332/
+│       ├── best_efficientnet_b3.pth                   # PyTorch checkpoint
+│       ├── model.onnx                                 # ONNX export (deployment)
+│       ├── class_names.json                           # 124 food category names
+│       ├── summary.json                               # Complete training statistics
+│       ├── metrics_epoch.csv / .jsonl                 # Per-epoch metrics
+│       ├── per_class_accuracy.json                    # Accuracy for each class
+│       ├── per_class_metrics.json                     # Precision/Recall per class
+│       └── classification_report.txt                  # Detailed classification report
+│
+└── Model artifacts (Binary food/not-food)
+    └── efficientnet_b3_food_not_food-20251031-220332/
+        ├── best_efficientnet_b3.pth                   # PyTorch checkpoint
+        ├── model.onnx                                 # ONNX export (deployment)
+        ├── class_names.json                           # Class names (food, not_food)
+        ├── summary.json                               # Complete training statistics
+        ├── metrics_epoch.csv / .jsonl                 # Per-epoch metrics
+        ├── per_class_accuracy.json                    # Accuracy for each class
+        ├── per_class_metrics.json                     # Precision/Recall per class
+        └── classification_report.txt                  # Detailed classification report
 ```
 
 ---
 
 ## 🎯 Conclusion
 
-This study successfully developed a **high-accuracy food recognition model** using deep learning and transfer learning techniques. The final model achieves:
+This project successfully developed **two high-accuracy food recognition models** using deep learning and transfer learning techniques:
+
+### 124-Class Food Classifier
 
 - ✅ **86.87% top-1 accuracy** on 124 food categories (Test set)
 - ✅ **97.30% top-5 accuracy** (almost always correct in top 5 guesses)
-- ✅ **95.14% accuracy** on high-confidence (Test, ≥80%) predictions
+- ✅ **95.14% accuracy** on high-confidence (≥80%) predictions
 - ✅ **Production-ready** ONNX model for web/mobile deployment
 - ✅ **Robust performance** across validation and test sets (no overfitting)
 
-The model is suitable for deployment in **nutritional tracking applications**, **restaurant menu digitization**, and **food recognition systems**.
+### Binary Food/Not-Food Classifier
+
+- ✅ **99.19% test accuracy** on food vs not-food classification
+- ✅ **98.79% validation accuracy** (best epoch)
+- ✅ Fast training convergence (13 epochs vs 17 for multi-class)
+- ✅ **Production-ready** ONNX model for pre-filtering pipeline
+
+Both models are suitable for deployment in **nutritional tracking applications**, **restaurant menu digitization**, and **food recognition systems**.
 
 ### Statistical Significance
 
-With 4,340 test images and 86.87% accuracy, the model correctly classifies **3,770 out of 4,340 images**, demonstrating strong real-world applicability for food recognition tasks.
+**124-class model**: With 4,340 test images and 86.87% accuracy, the model correctly classifies **3,770 out of 4,340 images**, demonstrating strong real-world applicability for fine-grained food recognition tasks.
+
+**Binary model**: With 248 test images and 99.19% accuracy, the model correctly classifies **246 out of 248 images**, making it highly reliable for food/non-food filtering in preprocessing pipelines.
 
 ---
 
-**Model Training Date**: October 2024  
-**Training Duration**: 17 epochs (see run logs for wall-clock time)  
-**Hardware**: DirectML-compatible GPU  
-**Framework**: PyTorch 2.x + torchvision
+**Model Training Dates**: October 30-31, 2024  
+**Training Duration**:
+
+- 124-class: 17 epochs (~70 min/epoch for fine-tuning phase)
+- Binary: 13 epochs (faster due to smaller head)  
+  **Hardware**: DirectML-compatible GPU  
+  **Framework**: PyTorch 2.x + torchvision
 
 ---
 
-_For questions or additional information, please refer to the training notebook: `train_efficientnet_b3_optimized.ipynb`_
+_For questions or additional information, please refer to the training notebooks:_
+
+- _124-class training: `train_efficientnet_b3_optimized.ipynb`_
+- _Binary training: `train_efficientnet_b3_optimized_food_not_foodv2.ipynb`_

@@ -6,13 +6,31 @@
 
 ---
 
-## Runs at a glance
+## 📑 Table of Contents
+
+- [Runs at a Glance](#runs-at-a-glance)
+- [Problem Statement](#-problem-statement)
+- [Dataset](#-dataset)
+- [Model Architecture](#-model-architecture)
+- [Training Methodology](#-training-methodology)
+- [Training Results](#-training-results)
+- [Final Model Performance](#-final-model-performance)
+- [Per-Class Performance](#-per-class-performance)
+- [Technical Algorithms](#-technical-algorithms-used)
+- [Model Deployment](#-model-deployment)
+- [Key Learnings](#-key-learnings--best-practices)
+- [Project Files](#project-files)
+- [Conclusion](#-conclusion)
+
+---
+
+## Runs at a Glance
 
 Two recent runs are available — listed here for quick reference. See the detailed sections below for full training configuration and per-class metrics.
 
 ### 1. 125-class Food Classifier
 
-**Folder**: `efficientnet_b3_baseline-20251114-003032/`
+**Folder**: [`efficientnet_b3_baseline-20251114-003032/`](../runs/efficientnet_b3_baseline-20251114-003032/)
 
 - Classes: 125 food categories
 - Best validation Top-1: **86.26%** | Test Top-1: **87.09%** | Test Top-5: **96.98%**
@@ -20,18 +38,25 @@ Two recent runs are available — listed here for quick reference. See the detai
 - Dataset: 35,000 train / 4,375 val / 4,375 test images
 - Model size: ~45MB (ONNX)
 
-**Files**:
+**Quick Links**:
 
-- `best_efficientnet_b3.pth` — PyTorch checkpoint
-- `model.onnx` — ONNX export for deployment
-- `class_names.json` — 124 food category names
-- `per_class_accuracy.json`, `per_class_metrics.json` — Per-class performance
-- `classification_report.txt` — Detailed metrics
-- `summary.json` — Complete training statistics
+- 📊 [**Summary Report**](../runs/efficientnet_b3_baseline-20251114-003032/summary.json) — Complete training statistics & metrics
+- 📈 [**Training Metrics (CSV)**](../runs/efficientnet_b3_baseline-20251114-003032/metrics_epoch.csv) — Per-epoch performance
+- 📋 [**Classification Report**](../runs/efficientnet_b3_baseline-20251114-003032/classification_report.txt) — Precision, Recall, F1 per class
+- 🎯 [**Per-Class Accuracy**](../runs/efficientnet_b3_baseline-20251114-003032/per_class_accuracy.json) — Accuracy for each food category
+- 📊 [**Per-Class Metrics**](../runs/efficientnet_b3_baseline-20251114-003032/per_class_metrics.json) — Detailed precision/recall/F1 per class
+- 🔀 [**Confusion Matrix**](../runs/efficientnet_b3_baseline-20251114-003032/confusion_matrix.png) — Visual class confusion analysis
+- 📉 [**Training Curves**](../runs/efficientnet_b3_baseline-20251114-003032/training_curves.png) — Loss & accuracy over epochs
+
+**Model Files**:
+
+- 🔸 [`best_efficientnet_b3.pth`](../runs/efficientnet_b3_baseline-20251114-003032/best_efficientnet_b3.pth) — PyTorch checkpoint
+- 🔸 [`model.onnx`](../runs/efficientnet_b3_baseline-20251114-003032/model.onnx) — ONNX export for deployment
+- 🔸 [`class_names.json`](../runs/efficientnet_b3_baseline-20251114-003032/class_names.json) — 125 food category names
 
 ### 2. Food vs Not-Food (Binary Classifier)
 
-**Folder**: `efficientnet_b3_food_not_food-20251031-220332/`
+**Folder**: [`efficientnet_b3_food_not_food-20251031-220332/`](../runs/efficientnet_b3_food_not_food-20251031-220332/)
 
 - Classes: 2 (food / not_food)
 - Best validation Top-1: **98.79%** | Test Top-1: **99.19%**
@@ -39,25 +64,36 @@ Two recent runs are available — listed here for quick reference. See the detai
 - Dataset: 9,528 train / 248 val / 248 test images
 - Model size: ~45MB (ONNX)
 
-**Files**:
+**Quick Links**:
 
-- `best_efficientnet_b3.pth` — PyTorch checkpoint
-- `model.onnx` — ONNX export for deployment
-- `class_names.json` — Class names (food, not_food)
-- `per_class_accuracy.json`, `per_class_metrics.json` — Per-class performance
-- `classification_report.txt` — Detailed metrics
-- `summary.json` — Complete training statistics
+- 📊 [**Summary Report**](../runs/efficientnet_b3_food_not_food-20251031-220332/summary.json) — Complete training statistics
+- 📈 [**Training Metrics (CSV)**](../runs/efficientnet_b3_food_not_food-20251031-220332/metrics_epoch.csv) — Per-epoch performance
+- 📋 [**Classification Report**](../runs/efficientnet_b3_food_not_food-20251031-220332/classification_report.txt) — Precision, Recall, F1
+- 🎯 [**Per-Class Accuracy**](../runs/efficientnet_b3_food_not_food-20251031-220332/per_class_accuracy.json) — Food vs Not-Food accuracy
+- 📊 [**Per-Class Metrics**](../runs/efficientnet_b3_food_not_food-20251031-220332/per_class_metrics.json) — Detailed metrics per class
+- 🔀 [**Confusion Matrix**](../runs/efficientnet_b3_food_not_food-20251031-220332/confusion_matrix.png) — Binary classification confusion
+- 📉 [**Training Curves**](../runs/efficientnet_b3_food_not_food-20251031-220332/training_curves.png) — Loss & accuracy visualization
 
-**Training notebooks**:
+**Model Files**:
 
-- `train_efficientnet_b3_optimized.ipynb` — 124-class food training
-- `train_efficientnet_b3_optimized_food_not_foodv2.ipynb` — Binary food/not-food training
+- 🔸 [`best_efficientnet_b3.pth`](../runs/efficientnet_b3_food_not_food-20251031-220332/best_efficientnet_b3.pth) — PyTorch checkpoint
+- 🔸 [`model.onnx`](../runs/efficientnet_b3_food_not_food-20251031-220332/model.onnx) — ONNX export for deployment
+- 🔸 [`class_names.json`](../runs/efficientnet_b3_food_not_food-20251031-220332/class_names.json) — Class names (food, not_food)
 
-**Inference & evaluation notebooks**:
+---
 
-- `test_inference_nonfood_and_food.ipynb` — Test inference on binary model
-- `test_model_on_all_food_dataset_images.ipynb` — Test 124-class model
-- `confusion_matrix_all_classes.ipynb` — Generate confusion matrix
+### 📓 Notebooks
+
+**Training**:
+
+- 📘 [`train_efficientnet_b3_optimized.ipynb`](../train_efficientnet_b3_optimized.ipynb) — 125-class food classifier training
+- 📘 [`train_efficientnet_b3_optimized_food_not_foodv2.ipynb`](../train_efficientnet_b3_optimized_food_not_foodv2.ipynb) — Binary food/not-food training
+
+**Inference & Evaluation**:
+
+- 📗 [`test_inference_nonfood_and_food.ipynb`](../test_inference_nonfood_and_food.ipynb) — Binary model inference testing
+- 📗 [`test_model_on_all_food_dataset_images.ipynb`](../test_model_on_all_food_dataset_images.ipynb) — 125-class model testing
+- 📗 [`confusion_matrix_all_classes.ipynb`](../confusion_matrix_all_classes.ipynb) — Generate confusion matrix visualization
 
 ---
 
@@ -299,13 +335,21 @@ Reason for slowdown: Full model backpropagation (12M params)
 
 ### Test Set Results (4,375 images)
 
-| Metric                | Value  | Interpretation                          |
-| --------------------- | ------ | --------------------------------------- |
-| **Top-1 Accuracy**    | 87.09% | Correct on first guess 87.09% of time   |
-| **Top-5 Accuracy**    | 96.98% | Correct answer in top 5: 96.98% of time |
-| **Precision (macro)** | 87.24% | Macro precision on test set             |
-| **Recall (macro)**    | 87.09% | Macro recall on test set                |
-| **F1 Score (macro)**  | 86.97% | Balanced precision/recall               |
+> 📋 **Full Details**: See [Classification Report](../runs/efficientnet_b3_baseline-20251114-003032/classification_report.txt) for per-class precision, recall, and F1 scores.
+
+| Metric                | Value  | Interpretation                           |
+| --------------------- | ------ | ---------------------------------------- |
+| **Top-1 Accuracy**    | 87.09% | Correct on first guess 87.09% of time    |
+| **Top-5 Accuracy**    | 96.98% | Correct answer in top 5: 96.98% of time  |
+| **Precision (macro)** | 87.24% | Average precision across all 125 classes |
+| **Recall (macro)**    | 87.09% | Average recall across all 125 classes    |
+| **F1 Score (macro)**  | 86.97% | Balanced precision/recall metric         |
+
+**📊 Detailed Metrics Available**:
+
+- [Per-Class Precision, Recall, F1](../runs/efficientnet_b3_baseline-20251114-003032/per_class_metrics.json)
+- [Per-Class Accuracy Breakdown](../runs/efficientnet_b3_baseline-20251114-003032/per_class_accuracy.json)
+- [Confusion Matrix Visualization](../runs/efficientnet_b3_baseline-20251114-003032/confusion_matrix.png)
 
 ### Confidence Analysis
 
@@ -328,6 +372,8 @@ Reason for slowdown: Full model backpropagation (12M params)
 ---
 
 ## 📊 Per-Class Performance
+
+> 📁 **Complete Data**: [Per-Class Accuracy JSON](../runs/efficientnet_b3_baseline-20251114-003032/per_class_accuracy.json) | [Per-Class Metrics (Precision/Recall/F1)](../runs/efficientnet_b3_baseline-20251114-003032/per_class_metrics.json)
 
 ### Best Performing Classes (100% accuracy)
 
@@ -357,21 +403,29 @@ Foods with more variability or visual similarity:
 
 **Why?** High visual similarity, regional variations, presentation differences, or overlapping ingredients with other classes.
 
+**🔍 Deep Dive**: See [Confusion Matrix](../runs/efficientnet_b3_baseline-20251114-003032/confusion_matrix.png) to identify which classes are most commonly confused with each other.
+
 ---
 
 ## 🔄 Comparison: Training vs Validation vs Test
+
+> 📈 **Full Training History**: [Epoch-by-Epoch Metrics (CSV)](../runs/efficientnet_b3_baseline-20251114-003032/metrics_epoch.csv) | [Training Curves Visualization](../runs/efficientnet_b3_baseline-20251114-003032/training_curves.png)
 
 | Metric         | Train  | Validation | Test   |
 | -------------- | ------ | ---------- | ------ |
 | Top-1 Accuracy | 99.11% | 86.26%     | 87.09% |
 | Top-5 Accuracy | 99.97% | 97.28%     | 96.98% |
 | F1 Score       | 99.11% | 86.20%     | 86.97% |
+| Precision      | 99.12% | 86.51%     | 87.24% |
+| Recall         | 99.11% | 86.26%     | 87.09% |
 
 **Observations**:
 
 - **Train >> Val/Test**: Expected behavior (model sees training data during learning)
 - **Val ≈ Test**: Excellent generalization (no overfitting!)
 - **Gap (~12%)**: Reasonable for 125-class problem with regularization
+
+**📊 Visual Analysis**: Check [training curves](../runs/efficientnet_b3_baseline-20251114-003032/training_curves.png) to see loss and accuracy progression over 20 epochs.
 
 ---
 
@@ -470,43 +524,58 @@ Note: If you run training on DirectML and see warnings about aten::lerp or other
 
 ---
 
-## Project Files
+## 📂 Project Files
 
-```
-nutrisight_model_training/
-├── README.md                                           # This documentation
-│
-├── Training notebooks
-│   ├── train_efficientnet_b3_optimized.ipynb          # 124-class food training
-│   └── train_efficientnet_b3_optimized_food_not_foodv2.ipynb  # Binary classifier training
-│
-├── Inference & evaluation notebooks
-│   ├── test_inference_nonfood_and_food.ipynb          # Binary model inference
-│   ├── test_model_on_all_food_dataset_images.ipynb   # 124-class model testing
-│   └── confusion_matrix_all_classes.ipynb             # Generate confusion matrix
-│
-├── Model artifacts (125-class)
-│   └── efficientnet_b3_baseline-20251114-003032/
-│       ├── best_efficientnet_b3.pth                   # PyTorch checkpoint
-│       ├── model.onnx                                 # ONNX export (deployment)
-│       ├── class_names.json                           # 125 food category names
-│       ├── summary.json                               # Complete training statistics
-│       ├── metrics_epoch.csv / .jsonl                 # Per-epoch metrics
-│       ├── per_class_accuracy.json                    # Accuracy for each class
-│       ├── per_class_metrics.json                     # Precision/Recall per class
-│       └── classification_report.txt                  # Detailed classification report
-│
-└── Model artifacts (Binary food/not-food)
-    └── efficientnet_b3_food_not_food-20251031-220332/
-        ├── best_efficientnet_b3.pth                   # PyTorch checkpoint
-        ├── model.onnx                                 # ONNX export (deployment)
-        ├── class_names.json                           # Class names (food, not_food)
-        ├── summary.json                               # Complete training statistics
-        ├── metrics_epoch.csv / .jsonl                 # Per-epoch metrics
-        ├── per_class_accuracy.json                    # Accuracy for each class
-        ├── per_class_metrics.json                     # Precision/Recall per class
-        └── classification_report.txt                  # Detailed classification report
-```
+### 📓 Training Notebooks
+
+| Notebook              | Purpose                           | Link                                                                                                                |
+| --------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| **125-Class Trainer** | Train multi-class food classifier | [`train_efficientnet_b3_optimized.ipynb`](../train_efficientnet_b3_optimized.ipynb)                                 |
+| **Binary Trainer**    | Train food/not-food classifier    | [`train_efficientnet_b3_optimized_food_not_foodv2.ipynb`](../train_efficientnet_b3_optimized_food_not_foodv2.ipynb) |
+
+### 🧪 Inference & Evaluation Notebooks
+
+| Notebook                 | Purpose                           | Link                                                                                            |
+| ------------------------ | --------------------------------- | ----------------------------------------------------------------------------------------------- |
+| **Binary Model Testing** | Test binary classifier inference  | [`test_inference_nonfood_and_food.ipynb`](../test_inference_nonfood_and_food.ipynb)             |
+| **125-Class Testing**    | Test multi-class model            | [`test_model_on_all_food_dataset_images.ipynb`](../test_model_on_all_food_dataset_images.ipynb) |
+| **Confusion Matrix**     | Generate confusion visualizations | [`confusion_matrix_all_classes.ipynb`](../confusion_matrix_all_classes.ipynb)                   |
+
+### 🎯 Model Artifacts - 125-Class Food Classifier
+
+**Location**: [`../runs/efficientnet_b3_baseline-20251114-003032/`](../runs/efficientnet_b3_baseline-20251114-003032/)
+
+| File                            | Description                   | Link                                                                                                      |
+| ------------------------------- | ----------------------------- | --------------------------------------------------------------------------------------------------------- |
+| **PyTorch Model**               | Trained checkpoint (.pth)     | [`best_efficientnet_b3.pth`](../runs/efficientnet_b3_baseline-20251114-003032/best_efficientnet_b3.pth)   |
+| **ONNX Model**                  | Deployment-ready export       | [`model.onnx`](../runs/efficientnet_b3_baseline-20251114-003032/model.onnx)                               |
+| **Class Names**                 | 125 food categories           | [`class_names.json`](../runs/efficientnet_b3_baseline-20251114-003032/class_names.json)                   |
+| **📊 Summary**                  | Complete training stats       | [`summary.json`](../runs/efficientnet_b3_baseline-20251114-003032/summary.json)                           |
+| **📈 Training Metrics**         | Per-epoch performance (CSV)   | [`metrics_epoch.csv`](../runs/efficientnet_b3_baseline-20251114-003032/metrics_epoch.csv)                 |
+| **📈 Training Metrics**         | Per-epoch performance (JSONL) | [`metrics_epoch.jsonl`](../runs/efficientnet_b3_baseline-20251114-003032/metrics_epoch.jsonl)             |
+| **🎯 Per-Class Accuracy**       | Accuracy for each class       | [`per_class_accuracy.json`](../runs/efficientnet_b3_baseline-20251114-003032/per_class_accuracy.json)     |
+| **📊 Per-Class Metrics**        | Precision/Recall/F1 per class | [`per_class_metrics.json`](../runs/efficientnet_b3_baseline-20251114-003032/per_class_metrics.json)       |
+| **📋 Classification Report**    | Full classification metrics   | [`classification_report.txt`](../runs/efficientnet_b3_baseline-20251114-003032/classification_report.txt) |
+| **🔀 Confusion Matrix**         | Visual class confusion        | [`confusion_matrix.png`](../runs/efficientnet_b3_baseline-20251114-003032/confusion_matrix.png)           |
+| **📉 Training Curves**          | Loss & accuracy plots         | [`training_curves.png`](../runs/efficientnet_b3_baseline-20251114-003032/training_curves.png)             |
+| **📊 Per-Class Accuracy Chart** | Visual accuracy distribution  | [`per_class_accuracy.png`](../runs/efficientnet_b3_baseline-20251114-003032/per_class_accuracy.png)       |
+
+### 🎯 Model Artifacts - Binary Food/Not-Food Classifier
+
+**Location**: [`../runs/efficientnet_b3_food_not_food-20251031-220332/`](../runs/efficientnet_b3_food_not_food-20251031-220332/)
+
+| File                         | Description                 | Link                                                                                                           |
+| ---------------------------- | --------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| **PyTorch Model**            | Trained checkpoint (.pth)   | [`best_efficientnet_b3.pth`](../runs/efficientnet_b3_food_not_food-20251031-220332/best_efficientnet_b3.pth)   |
+| **ONNX Model**               | Deployment-ready export     | [`model.onnx`](../runs/efficientnet_b3_food_not_food-20251031-220332/model.onnx)                               |
+| **Class Names**              | food, not_food              | [`class_names.json`](../runs/efficientnet_b3_food_not_food-20251031-220332/class_names.json)                   |
+| **📊 Summary**               | Complete training stats     | [`summary.json`](../runs/efficientnet_b3_food_not_food-20251031-220332/summary.json)                           |
+| **📈 Training Metrics**      | Per-epoch performance (CSV) | [`metrics_epoch.csv`](../runs/efficientnet_b3_food_not_food-20251031-220332/metrics_epoch.csv)                 |
+| **🎯 Per-Class Accuracy**    | Binary accuracy breakdown   | [`per_class_accuracy.json`](../runs/efficientnet_b3_food_not_food-20251031-220332/per_class_accuracy.json)     |
+| **📊 Per-Class Metrics**     | Precision/Recall/F1         | [`per_class_metrics.json`](../runs/efficientnet_b3_food_not_food-20251031-220332/per_class_metrics.json)       |
+| **📋 Classification Report** | Full metrics report         | [`classification_report.txt`](../runs/efficientnet_b3_food_not_food-20251031-220332/classification_report.txt) |
+| **🔀 Confusion Matrix**      | Binary confusion matrix     | [`confusion_matrix.png`](../runs/efficientnet_b3_food_not_food-20251031-220332/confusion_matrix.png)           |
+| **📉 Training Curves**       | Loss & accuracy plots       | [`training_curves.png`](../runs/efficientnet_b3_food_not_food-20251031-220332/training_curves.png)             |
 
 ---
 
@@ -553,7 +622,33 @@ Both models are suitable for deployment in **nutritional tracking applications**
 
 ---
 
-_For questions or additional information, please refer to the training notebooks:_
+---
 
-- _124-class training: `train_efficientnet_b3_optimized.ipynb`_
-- _Binary training: `train_efficientnet_b3_optimized_food_not_foodv2.ipynb`_
+## 📚 Quick Reference Links
+
+### 📊 125-Class Model Results
+
+- **Performance Summary**: [summary.json](../runs/efficientnet_b3_baseline-20251114-003032/summary.json)
+- **Classification Report** (Precision/Recall/F1): [classification_report.txt](../runs/efficientnet_b3_baseline-20251114-003032/classification_report.txt)
+- **Per-Class Metrics** (JSON): [per_class_metrics.json](../runs/efficientnet_b3_baseline-20251114-003032/per_class_metrics.json)
+- **Per-Class Accuracy**: [per_class_accuracy.json](../runs/efficientnet_b3_baseline-20251114-003032/per_class_accuracy.json)
+- **Confusion Matrix**: [confusion_matrix.png](../runs/efficientnet_b3_baseline-20251114-003032/confusion_matrix.png)
+- **Training Curves**: [training_curves.png](../runs/efficientnet_b3_baseline-20251114-003032/training_curves.png)
+- **Training History**: [metrics_epoch.csv](../runs/efficientnet_b3_baseline-20251114-003032/metrics_epoch.csv)
+
+### 📊 Binary Model Results
+
+- **Performance Summary**: [summary.json](../runs/efficientnet_b3_food_not_food-20251031-220332/summary.json)
+- **Classification Report**: [classification_report.txt](../runs/efficientnet_b3_food_not_food-20251031-220332/classification_report.txt)
+- **Confusion Matrix**: [confusion_matrix.png](../runs/efficientnet_b3_food_not_food-20251031-220332/confusion_matrix.png)
+- **Training Curves**: [training_curves.png](../runs/efficientnet_b3_food_not_food-20251031-220332/training_curves.png)
+
+### 📓 Notebooks
+
+- **125-Class Training**: [train_efficientnet_b3_optimized.ipynb](../train_efficientnet_b3_optimized.ipynb)
+- **Binary Training**: [train_efficientnet_b3_optimized_food_not_foodv2.ipynb](../train_efficientnet_b3_optimized_food_not_foodv2.ipynb)
+- **Testing & Evaluation**: [test_model_on_all_food_dataset_images.ipynb](../test_model_on_all_food_dataset_images.ipynb)
+
+---
+
+_For questions or additional information, please refer to the training notebooks or check the linked artifacts above._

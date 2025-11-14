@@ -10,14 +10,14 @@
 
 Two recent runs are available — listed here for quick reference. See the detailed sections below for full training configuration and per-class metrics.
 
-### 1. 124-class Food Classifier
+### 1. 125-class Food Classifier
 
-**Folder**: `efficientnet_b3_baseline-20251030-102332/`
+**Folder**: `efficientnet_b3_baseline-20251114-003032/`
 
-- Classes: 124 food categories
-- Best validation Top-1: **85.90%** | Test Top-1: **86.87%** | Test Top-5: **97.30%**
-- Epochs trained: 17 (best epoch = 17)
-- Dataset: 34,720 train / 4,340 val / 4,340 test images
+- Classes: 125 food categories
+- Best validation Top-1: **86.26%** | Test Top-1: **87.09%** | Test Top-5: **96.98%**
+- Epochs trained: 20 (best epoch = 17)
+- Dataset: 35,000 train / 4,375 val / 4,375 test images
 - Model size: ~45MB (ONNX)
 
 **Files**:
@@ -67,7 +67,7 @@ Two recent runs are available — listed here for quick reference. See the detai
 
 **Challenge**:
 
-- Recognize 124 different food categories from photos
+- Recognize 125 different food categories from photos
 - Handle visual similarities between foods (e.g., different types of cakes, pasta dishes)
 - Achieve high accuracy while maintaining reasonable inference speed
 - Deploy on resource-constrained environments (web servers)
@@ -79,8 +79,8 @@ Two recent runs are available — listed here for quick reference. See the detai
 ### Dataset Structure
 
 ```
-Total Images: 43,400
-Food Categories: 124 classes
+Total Images: 43,750
+Food Categories: 125 classes
 ├── Examples: Pizza, Hamburger, Sushi, Tacos, Ice Cream, etc.
 ├── Images per class: ~350 images (balanced distribution)
 └── Image Resolution: 252×252 pixels
@@ -90,7 +90,7 @@ Food Categories: 124 classes
 
 - **Base Dataset**: Selected categories from Food-101 (not all 101 classes are included)
 - **Extended Dataset**: Additional images collected from our custom/farmed datasets (locally sourced)
-- **Note**: The final 124-class dataset is a mix of selected Food-101 categories and our own farmed/custom images — some Food-101 classes were omitted and replaced/augmented by custom data.
+- **Note**: The final 125-class dataset is a mix of selected Food-101 categories and our own farmed/custom images — some Food-101 classes were omitted and replaced/augmented by custom data. Dataset was recently updated (Nov 2025) with revised images for some classes and one additional class.
 - **Split Method**: Stratified random split to ensure balanced class distribution
 
 ---
@@ -119,9 +119,9 @@ EfficientNet-B3 Backbone (12M parameters)
     ↓
 Custom Classification Head
 ├── Dropout Layer (30% dropout rate)
-└── Fully Connected Layer (→ 124 classes)
+└── Fully Connected Layer (→ 125 classes)
     ↓
-Output: Class Probabilities (124 values)
+Output: Class Probabilities (125 values)
 ```
 
 **Model Parameters**:
@@ -145,7 +145,7 @@ Output: Class Probabilities (124 values)
 - Purpose: Adapt final layers to food recognition task
 - Learning Rate: 1×10⁻³
 
-**Phase 2: Fine-tuning (Epochs 4-17)**
+**Phase 2: Fine-tuning (Epochs 4-20)**
 
 - Unfreeze entire network
 - Train all layers with lower learning rate
@@ -251,9 +251,9 @@ Notes:
 
 **Configuration**:
 
-- **Patience**: 15 epochs
+- **Patience**: 5 epochs
 - **Metric**: Validation Top-1 Accuracy
-- **Result**: Training stopped at epoch 17 (best: epoch 17)
+- **Result**: Training stopped at epoch 20 (best: epoch 17)
 
 **Why It Matters**:
 
@@ -274,9 +274,9 @@ Phase 1 (Head Warmup - Epochs 1-3):
 ├── Validation accuracy improved quickly during head warmup.
 └── Fast initial learning
 
-Phase 2 (Full Fine-tuning - Epochs 4-17):
+Phase 2 (Full Fine-tuning - Epochs 4-20):
 ├── Strong improvements after unfreezing; training stopped early when validation Top-1 plateaued.
-└── Best validation Top-1 accuracy: 85.90% (epoch 17)
+└── Best validation Top-1 accuracy: 86.26% (epoch 17)
 ```
 
 #### Training Speed
@@ -286,7 +286,7 @@ Warmup Phase (Epochs 1-3):
 ├── Speed: ~51 images/second
 └── Time per epoch: ~1,000 seconds (~17 minutes)
 
-Fine-tuning Phase (Epochs 4-24):
+Fine-tuning Phase (Epochs 4-20):
 ├── Speed: ~9.5 images/second
 └── Time per epoch: ~4,200 seconds (~70 minutes)
 
@@ -297,22 +297,22 @@ Reason for slowdown: Full model backpropagation (12M params)
 
 ## 🎯 Final Model Performance
 
-### Test Set Results (4,340 images)
+### Test Set Results (4,375 images)
 
 | Metric                | Value  | Interpretation                          |
 | --------------------- | ------ | --------------------------------------- |
-| **Top-1 Accuracy**    | 86.87% | Correct on first guess 86.87% of time   |
-| **Top-5 Accuracy**    | 97.30% | Correct answer in top 5: 97.30% of time |
-| **Precision (macro)** | 87.09% | Macro precision on test set             |
-| **Recall (macro)**    | 86.87% | Macro recall on test set                |
-| **F1 Score (macro)**  | 86.76% | Balanced precision/recall               |
+| **Top-1 Accuracy**    | 87.09% | Correct on first guess 87.09% of time   |
+| **Top-5 Accuracy**    | 96.98% | Correct answer in top 5: 96.98% of time |
+| **Precision (macro)** | 87.24% | Macro precision on test set             |
+| **Recall (macro)**    | 87.09% | Macro recall on test set                |
+| **F1 Score (macro)**  | 86.97% | Balanced precision/recall               |
 
 ### Confidence Analysis
 
 **High-Confidence Predictions (Test, ≥80% confidence):**
 
-- **Count / Percentage**: 3581 / 4340 (82.51% of test predictions)
-- **Accuracy among high-confidence predictions**: 95.14%
+- **Count / Percentage**: 3512 / 4375 (80.27% of test predictions)
+- **Accuracy among high-confidence predictions**: Highly reliable
 - **Use Case**: These predictions can be treated as high-trust; consider human review for the remainder.
 
 **Medium-Confidence Predictions** (50-80% confidence):
@@ -363,15 +363,15 @@ Foods with more variability or visual similarity:
 
 | Metric         | Train  | Validation | Test   |
 | -------------- | ------ | ---------- | ------ |
-| Top-1 Accuracy | 99.66% | 85.90%     | 86.87% |
-| Top-5 Accuracy | 99.99% | 96.94%     | 97.30% |
-| F1 Score       | 99.66% | 85.84%     | 86.76% |
+| Top-1 Accuracy | 99.11% | 86.26%     | 87.09% |
+| Top-5 Accuracy | 99.97% | 97.28%     | 96.98% |
+| F1 Score       | 99.11% | 86.20%     | 86.97% |
 
 **Observations**:
 
 - **Train >> Val/Test**: Expected behavior (model sees training data during learning)
 - **Val ≈ Test**: Excellent generalization (no overfitting!)
-- **Gap (~12%)**: Reasonable for 124-class problem with regularization
+- **Gap (~12%)**: Reasonable for 125-class problem with regularization
 
 ---
 
@@ -390,7 +390,7 @@ Foods with more variability or visual similarity:
 
 ### 3. Backpropagation & optimizer choices
 
-- **Baseline run optimizer (SGD)**: The baseline training run `runs/efficientnet_b3_baseline-20251030-102332` used SGD with momentum (Nesterov) and weight decay. SGD was chosen in that notebook to match the established training regime and to avoid DirectML CPU-fallbacks that can occur with some AdamW operators.
+- **Baseline run optimizer (SGD)**: The baseline training run `efficientnet_b3_baseline-20251114-003032` used SGD with momentum (Nesterov) and weight decay. SGD was chosen in that notebook to match the established training regime and to avoid DirectML CPU-fallbacks that can occur with some AdamW operators.
 
 - **Other runs (AdamW)**: Some optimized training notebooks (for example, `train_efficientnet_b3_optimized_food_not_food.ipynb`) use AdamW for weight decay-aware adaptive updates. AdamW is available in the repo and used for experiments, but on DirectML it can trigger CPU fallbacks for certain ops (see note below).
 
@@ -408,7 +408,7 @@ Note: If you run training on DirectML and see warnings about aten::lerp or other
 
 - **Formula**: `softmax(x_i) = e^(x_i) / Σ(e^(x_j))`
 - **Purpose**: Convert raw scores to probabilities (sum to 100%)
-- **Output**: Confidence scores for each of 124 classes
+- **Output**: Confidence scores for each of 125 classes
 
 ### 6. **Cosine Annealing Learning Rate Scheduler**
 
@@ -424,7 +424,7 @@ Note: If you run training on DirectML and see warnings about aten::lerp or other
 **Specifications**:
 
 - **Input Shape**: `[batch_size, 3, 252, 252]`
-- **Output Shape**: `[batch_size, 124]` (probability for each class)
+- **Output Shape**: `[batch_size, 125]` (probability for each class)
 - **File Size**: ~45MB
 - **Runtime**: Compatible with ONNX Runtime (CPU/GPU)
 
@@ -485,11 +485,11 @@ nutrisight_model_training/
 │   ├── test_model_on_all_food_dataset_images.ipynb   # 124-class model testing
 │   └── confusion_matrix_all_classes.ipynb             # Generate confusion matrix
 │
-├── Model artifacts (124-class)
-│   └── efficientnet_b3_baseline-20251030-102332/
+├── Model artifacts (125-class)
+│   └── efficientnet_b3_baseline-20251114-003032/
 │       ├── best_efficientnet_b3.pth                   # PyTorch checkpoint
 │       ├── model.onnx                                 # ONNX export (deployment)
-│       ├── class_names.json                           # 124 food category names
+│       ├── class_names.json                           # 125 food category names
 │       ├── summary.json                               # Complete training statistics
 │       ├── metrics_epoch.csv / .jsonl                 # Per-epoch metrics
 │       ├── per_class_accuracy.json                    # Accuracy for each class
@@ -514,11 +514,11 @@ nutrisight_model_training/
 
 This project successfully developed **two high-accuracy food recognition models** using deep learning and transfer learning techniques:
 
-### 124-Class Food Classifier
+### 125-Class Food Classifier
 
-- ✅ **86.87% top-1 accuracy** on 124 food categories (Test set)
-- ✅ **97.30% top-5 accuracy** (almost always correct in top 5 guesses)
-- ✅ **95.14% accuracy** on high-confidence (≥80%) predictions
+- ✅ **87.09% top-1 accuracy** on 125 food categories (Test set)
+- ✅ **96.98% top-5 accuracy** (almost always correct in top 5 guesses)
+- ✅ **80.27% high-confidence predictions** (≥80% confidence)
 - ✅ **Production-ready** ONNX model for web/mobile deployment
 - ✅ **Robust performance** across validation and test sets (no overfitting)
 
@@ -533,16 +533,20 @@ Both models are suitable for deployment in **nutritional tracking applications**
 
 ### Statistical Significance
 
-**124-class model**: With 4,340 test images and 86.87% accuracy, the model correctly classifies **3,770 out of 4,340 images**, demonstrating strong real-world applicability for fine-grained food recognition tasks.
+**125-class model**: With 4,375 test images and 87.09% accuracy, the model correctly classifies **3,810 out of 4,375 images**, demonstrating strong real-world applicability for fine-grained food recognition tasks.
 
 **Binary model**: With 248 test images and 99.19% accuracy, the model correctly classifies **246 out of 248 images**, making it highly reliable for food/non-food filtering in preprocessing pipelines.
 
 ---
 
-**Model Training Dates**: October 30-31, 2024  
+**Model Training Dates**:
+
+- 125-class: November 14, 2025
+- Binary: October 31, 2024
+
 **Training Duration**:
 
-- 124-class: 17 epochs (~70 min/epoch for fine-tuning phase)
+- 125-class: 20 epochs (~70 min/epoch for fine-tuning phase)
 - Binary: 13 epochs (faster due to smaller head)  
   **Hardware**: DirectML-compatible GPU  
   **Framework**: PyTorch 2.x + torchvision

@@ -494,6 +494,68 @@ Reason for slowdown: Full model backpropagation (12M params)
 - [Per-Class Accuracy Breakdown](./efficientnet_b3_baseline-20251114-003032/per_class_accuracy.json)
 - [Confusion Matrix Visualization](./efficientnet_b3_baseline-20251114-003032/confusion_matrix.png)
 
+### 📋 Understanding the Classification Report
+
+The classification report provides detailed performance metrics for each of the 125 food categories. Here's what each metric means:
+
+**Key Metrics Explained:**
+
+- **Precision** - Of all images predicted as a specific food class, what percentage were actually correct?
+  - *Example*: If precision for "pizza" is 85%, then 85% of images predicted as pizza were actually pizza
+  - *High precision* = Few false positives (model rarely misidentifies other foods as this class)
+
+- **Recall** - Of all actual images of a specific food, what percentage did the model correctly identify?
+  - *Example*: If recall for "sushi" is 90%, then the model correctly identified 90% of all sushi images
+  - *High recall* = Few false negatives (model rarely misses this food when it appears)
+
+- **F1-Score** - Harmonic mean of precision and recall (balanced metric)
+  - *Formula*: F1 = 2 × (Precision × Recall) / (Precision + Recall)
+  - *Interpretation*: Overall performance metric that balances both precision and recall
+  - *Range*: 0% (worst) to 100% (perfect)
+
+- **Support** - Number of test images for each food category
+  - *Example*: Support of 35 means there were 35 test images for that food class
+  - *Purpose*: Indicates statistical reliability of the metrics
+
+**F1-Score Interpretation Guide:**
+
+| F1-Score Range | Interpretation | Meaning |
+|----------------|----------------|---------|
+| **100%** | Perfect | Model achieves flawless classification for this class |
+| **≥90%** | Excellent | Very reliable predictions, minimal errors |
+| **70-90%** | Good | Solid performance, acceptable for most applications |
+| **50-70%** | Okay | Moderate performance, may need improvement |
+| **<50%** | Poor | Low accuracy, requires attention |
+
+**Summary Metrics:**
+
+- **Accuracy** - Overall percentage of correct predictions across all classes
+- **Macro Average** - Simple average of metrics across all classes (treats each class equally)
+- **Weighted Average** - Average weighted by support (gives more importance to classes with more samples)
+
+**Reading the Report:**
+
+Each food class has four columns of values (all shown as percentages):
+```
+                    precision    recall  f1-score   support
+chicken_adobo          75.61%    88.57%    81.58%        35
+```
+
+This means:
+- 75.61% of images predicted as chicken adobo were correct (precision)
+- 88.57% of actual chicken adobo images were identified (recall)
+- 81.58% balanced score between precision and recall (F1)
+- 35 chicken adobo test images were evaluated (support)
+
+**Performance Interpretation:**
+
+Classes with:
+- **F1 ≥ 90%** (Excellent): Model is highly reliable for these foods
+- **F1 = 70-90%** (Good): Solid performance, occasional mistakes
+- **F1 < 70%** (Needs Improvement): May confuse with visually similar foods
+
+See the [full classification report](./efficientnet_b3_baseline-20251114-003032/classification_report.txt) for per-class breakdown of all 125 food categories.
+
 ### Confidence Analysis
 
 **High-Confidence Predictions (Test, ≥80% confidence):**

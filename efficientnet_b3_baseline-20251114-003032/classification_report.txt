@@ -132,3 +132,28 @@ grilled_cheese_sandwich       75.86%    62.86%    68.75%        35   Okay
                accuracy                           87.09%      4375   Good
               macro avg       87.24%    87.09%    86.97%      4375   Good
            weighted avg       87.24%    87.09%    86.97%      4375   Good
+
+================================================================================
+SUMMARY EXPLANATION:
+
+- Accuracy (87.09%): Overall percentage of correct predictions across all classes.
+  Out of 4,375 test images, 3,810 were classified correctly.
+
+- Macro Average (87.24% precision, 87.09% recall, 86.97% F1):
+  Simple average of metrics across all 125 food classes.
+  Treats each class equally (whether it's pizza or balut).
+  Use this metric when each food category is equally important.
+
+- Weighted Average (87.24% precision, 87.09% recall, 86.97% F1):
+  Average weighted by the number of samples per class.
+  In this dataset, all classes have equal samples (35 each), so macro and 
+  weighted averages are nearly identical.
+
+INTERPRETATION:
+F1-score of 86.97% falls in the "Good" range (70-90%), indicating:
+- Strong overall performance across 125 diverse food categories
+- Balanced precision (87.24%) and recall (87.09%)
+- Model makes correct predictions 87% of the time on first guess
+- Some challenging classes (visually similar foods) pull down the average
+- Best performing: 10 classes at 100% (Perfect)
+- Most challenging: 7 classes below 70% (need improvement)

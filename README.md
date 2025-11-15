@@ -97,7 +97,7 @@ Two recent runs are available — listed here for quick reference. See the detai
 
 ### 2. Food vs Not-Food (Binary Classifier)
 
-**Folder**: [`efficientnet_b3_food_not_food-20251115-073709/`](./efficientnet_b3_food_not_food-20251115-073709/)
+**Folder**: [`efficientnet_b3_food_not_food-20251115-190720/`](./efficientnet_b3_food_not_food-20251115-190720/)
 
 - Classes: 2 (food / not_food)
 - Best validation Top-1: **98.40%** | Test Top-1: **98.40%**
@@ -107,19 +107,19 @@ Two recent runs are available — listed here for quick reference. See the detai
 
 **Quick Links**:
 
-- 📊 [**Summary Report**](./efficientnet_b3_food_not_food-20251115-073709/summary.json) — Complete training statistics
-- 📈 [**Training Metrics (CSV)**](./efficientnet_b3_food_not_food-20251115-073709/metrics_epoch.csv) — Per-epoch performance
-- 📋 [**Classification Report**](./efficientnet_b3_food_not_food-20251115-073709/classification_report.txt) — Precision, Recall, F1
-- 🎯 [**Per-Class Accuracy**](./efficientnet_b3_food_not_food-20251115-073709/per_class_accuracy.json) — Food vs Not-Food accuracy
-- 📊 [**Per-Class Metrics**](./efficientnet_b3_food_not_food-20251115-073709/per_class_metrics.json) — Detailed metrics per class
-- 🔀 [**Confusion Matrix**](./efficientnet_b3_food_not_food-20251115-073709/confusion_matrix.png) — Binary classification confusion
-- 📉 [**Training Curves**](./efficientnet_b3_food_not_food-20251115-073709/training_curves.png) — Loss & accuracy visualization
+- 📊 [**Summary Report**](./efficientnet_b3_food_not_food-20251115-190720/summary.json) — Complete training statistics
+- 📈 [**Training Metrics (CSV)**](./efficientnet_b3_food_not_food-20251115-190720/metrics_epoch.csv) — Per-epoch performance
+- 📋 [**Classification Report**](./efficientnet_b3_food_not_food-20251115-190720/classification_report.txt) — Precision, Recall, F1
+- 🎯 [**Per-Class Accuracy**](./efficientnet_b3_food_not_food-20251115-190720/per_class_accuracy.json) — Food vs Not-Food accuracy
+- 📊 [**Per-Class Metrics**](./efficientnet_b3_food_not_food-20251115-190720/per_class_metrics.json) — Detailed metrics per class
+- 🔀 [**Confusion Matrix**](./efficientnet_b3_food_not_food-20251115-190720/confusion_matrix.png) — Binary classification confusion
+- 📉 [**Training Curves**](./efficientnet_b3_food_not_food-20251115-190720/training_curves.png) — Loss & accuracy visualization
 
 **Model Files**:
 
-- 🔸 [`best_efficientnet_b3.pth`](./efficientnet_b3_food_not_food-20251115-073709/best_efficientnet_b3.pth) — PyTorch checkpoint
-- 🔸 [`model.onnx`](./efficientnet_b3_food_not_food-20251115-073709/model.onnx) — ONNX export for deployment
-- 🔸 [`class_names.json`](./efficientnet_b3_food_not_food-20251115-073709/class_names.json) — Class names (food, not_food)
+- 🔸 [`best_efficientnet_b3.pth`](./efficientnet_b3_food_not_food-20251115-190720/best_efficientnet_b3.pth) — PyTorch checkpoint
+- 🔸 [`model.onnx`](./efficientnet_b3_food_not_food-20251115-190720/model.onnx) — ONNX export for deployment
+- 🔸 [`class_names.json`](./efficientnet_b3_food_not_food-20251115-190720/class_names.json) — Class names (food, not_food)
 
 ---
 
@@ -127,14 +127,14 @@ Two recent runs are available — listed here for quick reference. See the detai
 
 **Training**:
 
-- 📘 [`train_efficientnet_b3_optimized.ipynb`](../train_efficientnet_b3_optimized.ipynb) — 125-class food classifier training
-- 📘 [`train_efficientnet_b3_optimized_food_not_foodv2.ipynb`](../train_efficientnet_b3_optimized_food_not_foodv2.ipynb) — Binary food/not-food training
+- 📘 [`train_efficientnet_b3_optimized.ipynb`](./train_efficientnet_b3_optimized.ipynb) — 125-class food classifier training
+- 📘 [`train_efficientnet_b3_optimized_food_not_foodv2.ipynb`](./train_efficientnet_b3_optimized_food_not_foodv2.ipynb) — Binary food/not-food training
 
 **Inference & Evaluation**:
 
-- 📗 [`test_inference_nonfood_and_food.ipynb`](../test_inference_nonfood_and_food.ipynb) — Binary model inference testing
-- 📗 [`test_model_on_all_food_dataset_images.ipynb`](../test_model_on_all_food_dataset_images.ipynb) — 125-class model testing
-- 📗 [`confusion_matrix_all_classes.ipynb`](../confusion_matrix_all_classes.ipynb) — Generate confusion matrix visualization
+- 📗 [`test_inference_nonfood_and_food.ipynb`](./test_inference_nonfood_and_food.ipynb) — Binary model inference testing
+- 📗 [`test_model_on_all_food_dataset_images.ipynb`](./test_model_on_all_food_dataset_images.ipynb) — 125-class model testing
+- 📗 [`confusion_matrix_all_classes.ipynb`](./confusion_matrix_all_classes.ipynb) — Generate confusion matrix visualization
 
 ---
 
@@ -190,19 +190,53 @@ Two recent runs are available — listed here for quick reference. See the detai
 - **100% Accuracy**: Balut, Leche Flan, Baked Tahong, Chicken Tinola, Daing na Bangus, Isaw Manok, Pritong Galunggong
 - **Significance**: Demonstrates model's ability to learn culturally-specific food categories often underrepresented in existing datasets
 
-### 6. Research Limitations & Future Work
+### 6. Binary Classifier Error Analysis
+
+**Inference Testing Results**: [`inference_outputs/`](./inference_outputs/)
+
+To validate the binary food/not-food classifier's real-world performance, systematic inference testing was conducted on the trained model. The analysis revealed:
+
+**False Positive Analysis (Non-Food Misclassified as Food):**
+
+- **Total False Positives**: 17 images (from 9,552 train + 250 val + 250 test)
+- **Breakdown**: 15 train errors, 1 val error, 1 test error
+- **Confidence Range**: 73.55% - 100% (model often very confident but wrong)
+
+**Error Pattern Examples**:
+| Image | Predicted Probability (Food) | Actual Class | Notes |
+|-------|----------------------------|--------------|-------|
+| `IMG_20220603_175735.jpg` | 100.00% | not_food | Plate/utensils scene |
+| `P8230123.jpg` | 98.75% | not_food | Kitchen setting |
+| `fefea57d65ac52136f2e55a13e1ad17f.jpg` | 100.00% | not_food | Food-related object |
+
+**Key Insight**: Most errors occur on images containing food-related objects (plates, utensils, kitchen scenes) that lack actual food items. This suggests the model learned to recognize food contexts, not just food itself.
+
+**Detailed Error Data**:
+
+- [`non_food_confident.json`](./inference_outputs/non_food_confident.json) — List of all 17 false positives with confidence scores
+- [`bad_images_by_class.json`](./inference_outputs/bad_images_by_class.json) — Comprehensive error breakdown by class
+
+**Research Implications**:
+
+- **98.40% test accuracy** validated through error analysis (4 errors out of 250 test images)
+- False positives concentrated in ambiguous food-context scenes
+- Suggests need for negative examples showing empty plates/utensils in future training
+
+### 7. Research Limitations & Future Work
 
 **Identified Limitations:**
 
 - Visually similar foods (cakes, sandwiches) harder to distinguish
 - Some classes need more training examples (currently ~350 per class)
 - Performance varies by food presentation style
+- **Binary classifier**: Prone to false positives on food-related objects (plates, utensils)
 
 **Recommended Improvements:**
 
 - Collect more images for challenging classes (active learning approach)
 - Experiment with ensemble models for improved accuracy
 - Add nutritional content prediction as multi-task learning
+- **Binary classifier**: Include more negative examples (empty plates, utensils, kitchen scenes)
 
 ---
 
@@ -637,18 +671,18 @@ Note: If you run training on DirectML and see warnings about aten::lerp or other
 
 ### 📓 Training Notebooks
 
-| Notebook              | Purpose                           | Link                                                                                                                |
-| --------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| **125-Class Trainer** | Train multi-class food classifier | [`train_efficientnet_b3_optimized.ipynb`](../train_efficientnet_b3_optimized.ipynb)                                 |
-| **Binary Trainer**    | Train food/not-food classifier    | [`train_efficientnet_b3_optimized_food_not_foodv2.ipynb`](../train_efficientnet_b3_optimized_food_not_foodv2.ipynb) |
+| Notebook              | Purpose                           | Link                                                                                                               |
+| --------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **125-Class Trainer** | Train multi-class food classifier | [`train_efficientnet_b3_optimized.ipynb`](./train_efficientnet_b3_optimized.ipynb)                                 |
+| **Binary Trainer**    | Train food/not-food classifier    | [`train_efficientnet_b3_optimized_food_not_foodv2.ipynb`](./train_efficientnet_b3_optimized_food_not_foodv2.ipynb) |
 
 ### 🧪 Inference & Evaluation Notebooks
 
-| Notebook                 | Purpose                           | Link                                                                                            |
-| ------------------------ | --------------------------------- | ----------------------------------------------------------------------------------------------- |
-| **Binary Model Testing** | Test binary classifier inference  | [`test_inference_nonfood_and_food.ipynb`](../test_inference_nonfood_and_food.ipynb)             |
-| **125-Class Testing**    | Test multi-class model            | [`test_model_on_all_food_dataset_images.ipynb`](../test_model_on_all_food_dataset_images.ipynb) |
-| **Confusion Matrix**     | Generate confusion visualizations | [`confusion_matrix_all_classes.ipynb`](../confusion_matrix_all_classes.ipynb)                   |
+| Notebook                 | Purpose                           | Link                                                                                           |
+| ------------------------ | --------------------------------- | ---------------------------------------------------------------------------------------------- |
+| **Binary Model Testing** | Test binary classifier inference  | [`test_inference_nonfood_and_food.ipynb`](./test_inference_nonfood_and_food.ipynb)             |
+| **125-Class Testing**    | Test multi-class model            | [`test_model_on_all_food_dataset_images.ipynb`](./test_model_on_all_food_dataset_images.ipynb) |
+| **Confusion Matrix**     | Generate confusion visualizations | [`confusion_matrix_all_classes.ipynb`](./confusion_matrix_all_classes.ipynb)                   |
 
 ### 🎯 Model Artifacts - 125-Class Food Classifier
 
@@ -671,20 +705,20 @@ Note: If you run training on DirectML and see warnings about aten::lerp or other
 
 ### 🎯 Model Artifacts - Binary Food/Not-Food Classifier
 
-**Location**: [`./efficientnet_b3_food_not_food-20251115-073709/`](./efficientnet_b3_food_not_food-20251115-073709/)
+**Location**: [`./efficientnet_b3_food_not_food-20251115-190720/`](./efficientnet_b3_food_not_food-20251115-190720/)
 
 | File                         | Description                 | Link                                                                                                     |
 | ---------------------------- | --------------------------- | -------------------------------------------------------------------------------------------------------- |
-| **PyTorch Model**            | Trained checkpoint (.pth)   | [`best_efficientnet_b3.pth`](./efficientnet_b3_food_not_food-20251115-073709/best_efficientnet_b3.pth)   |
-| **ONNX Model**               | Deployment-ready export     | [`model.onnx`](./efficientnet_b3_food_not_food-20251115-073709/model.onnx)                               |
-| **Class Names**              | food, not_food              | [`class_names.json`](./efficientnet_b3_food_not_food-20251115-073709/class_names.json)                   |
-| **📊 Summary**               | Complete training stats     | [`summary.json`](./efficientnet_b3_food_not_food-20251115-073709/summary.json)                           |
-| **📈 Training Metrics**      | Per-epoch performance (CSV) | [`metrics_epoch.csv`](./efficientnet_b3_food_not_food-20251115-073709/metrics_epoch.csv)                 |
-| **🎯 Per-Class Accuracy**    | Binary accuracy breakdown   | [`per_class_accuracy.json`](./efficientnet_b3_food_not_food-20251115-073709/per_class_accuracy.json)     |
-| **📊 Per-Class Metrics**     | Precision/Recall/F1         | [`per_class_metrics.json`](./efficientnet_b3_food_not_food-20251115-073709/per_class_metrics.json)       |
-| **📋 Classification Report** | Full metrics report         | [`classification_report.txt`](./efficientnet_b3_food_not_food-20251115-073709/classification_report.txt) |
-| **🔀 Confusion Matrix**      | Binary confusion matrix     | [`confusion_matrix.png`](./efficientnet_b3_food_not_food-20251115-073709/confusion_matrix.png)           |
-| **📉 Training Curves**       | Loss & accuracy plots       | [`training_curves.png`](./efficientnet_b3_food_not_food-20251115-073709/training_curves.png)             |
+| **PyTorch Model**            | Trained checkpoint (.pth)   | [`best_efficientnet_b3.pth`](./efficientnet_b3_food_not_food-20251115-190720/best_efficientnet_b3.pth)   |
+| **ONNX Model**               | Deployment-ready export     | [`model.onnx`](./efficientnet_b3_food_not_food-20251115-190720/model.onnx)                               |
+| **Class Names**              | food, not_food              | [`class_names.json`](./efficientnet_b3_food_not_food-20251115-190720/class_names.json)                   |
+| **📊 Summary**               | Complete training stats     | [`summary.json`](./efficientnet_b3_food_not_food-20251115-190720/summary.json)                           |
+| **📈 Training Metrics**      | Per-epoch performance (CSV) | [`metrics_epoch.csv`](./efficientnet_b3_food_not_food-20251115-190720/metrics_epoch.csv)                 |
+| **🎯 Per-Class Accuracy**    | Binary accuracy breakdown   | [`per_class_accuracy.json`](./efficientnet_b3_food_not_food-20251115-190720/per_class_accuracy.json)     |
+| **📊 Per-Class Metrics**     | Precision/Recall/F1         | [`per_class_metrics.json`](./efficientnet_b3_food_not_food-20251115-190720/per_class_metrics.json)       |
+| **📋 Classification Report** | Full metrics report         | [`classification_report.txt`](./efficientnet_b3_food_not_food-20251115-190720/classification_report.txt) |
+| **🔀 Confusion Matrix**      | Binary confusion matrix     | [`confusion_matrix.png`](./efficientnet_b3_food_not_food-20251115-190720/confusion_matrix.png)           |
+| **📉 Training Curves**       | Loss & accuracy plots       | [`training_curves.png`](./efficientnet_b3_food_not_food-20251115-190720/training_curves.png)             |
 
 ---
 
@@ -751,6 +785,7 @@ This research successfully addressed the problem of automated Filipino and inter
 1. **Visual Similarity Challenge**: Accuracy drops to 54-69% for visually similar foods (chocolate desserts, sandwiches)
 2. **Data Constraints**: ~350 images per class; more data could improve challenging categories
 3. **Presentation Variability**: Performance varies with plating style, lighting, angles
+4. **Binary Classifier Error Pattern**: 17 false positives identified (see [inference analysis](./inference_outputs/)) — model tends to classify food-related objects (empty plates, utensils) as food
 
 **Recommended Future Research:**
 
@@ -759,6 +794,7 @@ This research successfully addressed the problem of automated Filipino and inter
 3. **Multi-Task Learning**: Extend model to predict nutritional content alongside food category
 4. **Larger Architectures**: Evaluate EfficientNet-B4/B5 for marginal accuracy gains
 5. **User Feedback Loop**: Incorporate user corrections to improve model over time
+6. **Binary Classifier Enhancement**: Add negative examples (empty plates, utensils, kitchen scenes) to reduce false positives identified in [error analysis](./inference_outputs/)
 
 ### Statistical Validation
 
@@ -795,8 +831,8 @@ The models developed in this research provide a **strong foundation for future w
 
 **Model Training Dates**:
 
-- 125-class: November 14, 2025
-- Binary: November 15, 2025
+- 125-class: November 14, 2025 (00:30:32)
+- Binary: November 15, 2025 (19:07:20)
 
 **Training Duration**:
 
@@ -825,16 +861,16 @@ The models developed in this research provide a **strong foundation for future w
 
 ### 📊 Binary Model Results
 
-- **Performance Summary**: [summary.json](./efficientnet_b3_food_not_food-20251115-073709/summary.json)
-- **Classification Report**: [classification_report.txt](./efficientnet_b3_food_not_food-20251115-073709/classification_report.txt)
-- **Confusion Matrix**: [confusion_matrix.png](./efficientnet_b3_food_not_food-20251115-073709/confusion_matrix.png)
-- **Training Curves**: [training_curves.png](./efficientnet_b3_food_not_food-20251115-073709/training_curves.png)
+- **Performance Summary**: [summary.json](./efficientnet_b3_food_not_food-20251115-190720/summary.json)
+- **Classification Report**: [classification_report.txt](./efficientnet_b3_food_not_food-20251115-190720/classification_report.txt)
+- **Confusion Matrix**: [confusion_matrix.png](./efficientnet_b3_food_not_food-20251115-190720/confusion_matrix.png)
+- **Training Curves**: [training_curves.png](./efficientnet_b3_food_not_food-20251115-190720/training_curves.png)
 
 ### 📓 Notebooks
 
-- **125-Class Training**: [train_efficientnet_b3_optimized.ipynb](../train_efficientnet_b3_optimized.ipynb)
-- **Binary Training**: [train_efficientnet_b3_optimized_food_not_foodv2.ipynb](../train_efficientnet_b3_optimized_food_not_foodv2.ipynb)
-- **Testing & Evaluation**: [test_model_on_all_food_dataset_images.ipynb](../test_model_on_all_food_dataset_images.ipynb)
+- **125-Class Training**: [train_efficientnet_b3_optimized.ipynb](./train_efficientnet_b3_optimized.ipynb)
+- **Binary Training**: [train_efficientnet_b3_optimized_food_not_foodv2.ipynb](./train_efficientnet_b3_optimized_food_not_foodv2.ipynb)
+- **Testing & Evaluation**: [test_model_on_all_food_dataset_images.ipynb](./test_model_on_all_food_dataset_images.ipynb)
 
 ---
 

@@ -3,9 +3,9 @@ Classification Report (Test Set)
 
               precision    recall  f1-score   support   interpretation
 
-        food     0.9919    0.9760    0.9839       125   Excellent
-    not_food     0.9764    0.9920    0.9841       125   Excellent
+        food       99.19%    97.60%    98.39%       125   Excellent
+    not_food       97.64%    99.20%    98.41%       125   Excellent
 
-    accuracy                         0.9840       250   Excellent
-   macro avg     0.9841    0.9840    0.9840       250   Excellent
-weighted avg     0.9841    0.9840    0.9840       250   Excellent
+    accuracy                           98.40%       250   Excellent
+   macro avg       98.41%    98.40%    98.40%       250   Excellent
+weighted avg       98.41%    98.40%    98.40%       250   Excellent

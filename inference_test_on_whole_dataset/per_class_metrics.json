@@ -1,0 +1,1271 @@
+{
+  "overall_metrics": {
+    "total_images": 53918,
+    "top1_correct": 51873,
+    "top1_accuracy": 96.20720353128826,
+    "top3_70conf_correct": 50487,
+    "top3_70conf_accuracy": 93.63663340628362
+  },
+  "per_class_results": [
+    {
+      "class": "adobong_pusit",
+      "total_images": 350,
+      "top1_correct": 328,
+      "top1_accuracy": 93.71428571428572,
+      "top3_70conf_correct": 316,
+      "top3_70conf_accuracy": 90.28571428571428,
+      "nonfood_in_top3_count": 7,
+      "nonfood_contamination_rate": 2.0
+    },
+    {
+      "class": "apple",
+      "total_images": 350,
+      "top1_correct": 347,
+      "top1_accuracy": 99.14285714285714,
+      "top3_70conf_correct": 342,
+      "top3_70conf_accuracy": 97.71428571428571,
+      "nonfood_in_top3_count": 184,
+      "nonfood_contamination_rate": 52.57142857142857
+    },
+    {
+      "class": "arroz_caldo",
+      "total_images": 350,
+      "top1_correct": 348,
+      "top1_accuracy": 99.42857142857143,
+      "top3_70conf_correct": 343,
+      "top3_70conf_accuracy": 98.0,
+      "nonfood_in_top3_count": 1,
+      "nonfood_contamination_rate": 0.2857142857142857
+    },
+    {
+      "class": "baby_back_ribs",
+      "total_images": 350,
+      "top1_correct": 335,
+      "top1_accuracy": 95.71428571428572,
+      "top3_70conf_correct": 311,
+      "top3_70conf_accuracy": 88.85714285714286,
+      "nonfood_in_top3_count": 1,
+      "nonfood_contamination_rate": 0.2857142857142857
+    },
+    {
+      "class": "baked_tahong",
+      "total_images": 350,
+      "top1_correct": 341,
+      "top1_accuracy": 97.42857142857143,
+      "top3_70conf_correct": 337,
+      "top3_70conf_accuracy": 96.28571428571429,
+      "nonfood_in_top3_count": 21,
+      "nonfood_contamination_rate": 6.0
+    },
+    {
+      "class": "balut",
+      "total_images": 350,
+      "top1_correct": 350,
+      "top1_accuracy": 100.0,
+      "top3_70conf_correct": 349,
+      "top3_70conf_accuracy": 99.71428571428571,
+      "nonfood_in_top3_count": 30,
+      "nonfood_contamination_rate": 8.571428571428571
+    },
+    {
+      "class": "banana",
+      "total_images": 350,
+      "top1_correct": 350,
+      "top1_accuracy": 100.0,
+      "top3_70conf_correct": 350,
+      "top3_70conf_accuracy": 100.0,
+      "nonfood_in_top3_count": 126,
+      "nonfood_contamination_rate": 36.0
+    },
+    {
+      "class": "beef_bistek",
+      "total_images": 350,
+      "top1_correct": 306,
+      "top1_accuracy": 87.42857142857143,
+      "top3_70conf_correct": 273,
+      "top3_70conf_accuracy": 78.0,
+      "nonfood_in_top3_count": 7,
+      "nonfood_contamination_rate": 2.0
+    },
+    {
+      "class": "beef_kaldereta",
+      "total_images": 350,
+      "top1_correct": 312,
+      "top1_accuracy": 89.14285714285714,
+      "top3_70conf_correct": 287,
+      "top3_70conf_accuracy": 82.0,
+      "nonfood_in_top3_count": 2,
+      "nonfood_contamination_rate": 0.5714285714285714
+    },
+    {
+      "class": "beef_sinigang",
+      "total_images": 350,
+      "top1_correct": 317,
+      "top1_accuracy": 90.57142857142857,
+      "top3_70conf_correct": 293,
+      "top3_70conf_accuracy": 83.71428571428572,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "beef_tartare",
+      "total_images": 350,
+      "top1_correct": 324,
+      "top1_accuracy": 92.57142857142857,
+      "top3_70conf_correct": 317,
+      "top3_70conf_accuracy": 90.57142857142857,
+      "nonfood_in_top3_count": 1,
+      "nonfood_contamination_rate": 0.2857142857142857
+    },
+    {
+      "class": "beignets",
+      "total_images": 350,
+      "top1_correct": 333,
+      "top1_accuracy": 95.14285714285714,
+      "top3_70conf_correct": 318,
+      "top3_70conf_accuracy": 90.85714285714286,
+      "nonfood_in_top3_count": 11,
+      "nonfood_contamination_rate": 3.1428571428571432
+    },
+    {
+      "class": "bibimbap",
+      "total_images": 350,
+      "top1_correct": 339,
+      "top1_accuracy": 96.85714285714285,
+      "top3_70conf_correct": 336,
+      "top3_70conf_accuracy": 96.0,
+      "nonfood_in_top3_count": 2,
+      "nonfood_contamination_rate": 0.5714285714285714
+    },
+    {
+      "class": "biko",
+      "total_images": 350,
+      "top1_correct": 324,
+      "top1_accuracy": 92.57142857142857,
+      "top3_70conf_correct": 317,
+      "top3_70conf_accuracy": 90.57142857142857,
+      "nonfood_in_top3_count": 49,
+      "nonfood_contamination_rate": 14.000000000000002
+    },
+    {
+      "class": "boiled_egg",
+      "total_images": 350,
+      "top1_correct": 346,
+      "top1_accuracy": 98.85714285714286,
+      "top3_70conf_correct": 343,
+      "top3_70conf_accuracy": 98.0,
+      "nonfood_in_top3_count": 26,
+      "nonfood_contamination_rate": 7.428571428571429
+    },
+    {
+      "class": "bread_pudding",
+      "total_images": 350,
+      "top1_correct": 317,
+      "top1_accuracy": 90.57142857142857,
+      "top3_70conf_correct": 303,
+      "top3_70conf_accuracy": 86.57142857142858,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "caesar_salad",
+      "total_images": 350,
+      "top1_correct": 340,
+      "top1_accuracy": 97.14285714285714,
+      "top3_70conf_correct": 328,
+      "top3_70conf_accuracy": 93.71428571428572,
+      "nonfood_in_top3_count": 3,
+      "nonfood_contamination_rate": 0.8571428571428572
+    },
+    {
+      "class": "cannoli",
+      "total_images": 350,
+      "top1_correct": 338,
+      "top1_accuracy": 96.57142857142857,
+      "top3_70conf_correct": 333,
+      "top3_70conf_accuracy": 95.14285714285714,
+      "nonfood_in_top3_count": 5,
+      "nonfood_contamination_rate": 1.4285714285714286
+    },
+    {
+      "class": "cheesecake",
+      "total_images": 350,
+      "top1_correct": 325,
+      "top1_accuracy": 92.85714285714286,
+      "top3_70conf_correct": 303,
+      "top3_70conf_accuracy": 86.57142857142858,
+      "nonfood_in_top3_count": 1,
+      "nonfood_contamination_rate": 0.2857142857142857
+    },
+    {
+      "class": "chicken_adobo",
+      "total_images": 350,
+      "top1_correct": 310,
+      "top1_accuracy": 88.57142857142857,
+      "top3_70conf_correct": 271,
+      "top3_70conf_accuracy": 77.42857142857143,
+      "nonfood_in_top3_count": 3,
+      "nonfood_contamination_rate": 0.8571428571428572
+    },
+    {
+      "class": "chicken_afritada",
+      "total_images": 350,
+      "top1_correct": 323,
+      "top1_accuracy": 92.28571428571428,
+      "top3_70conf_correct": 304,
+      "top3_70conf_accuracy": 86.85714285714286,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "chicken_curry",
+      "total_images": 350,
+      "top1_correct": 321,
+      "top1_accuracy": 91.71428571428571,
+      "top3_70conf_correct": 293,
+      "top3_70conf_accuracy": 83.71428571428572,
+      "nonfood_in_top3_count": 2,
+      "nonfood_contamination_rate": 0.5714285714285714
+    },
+    {
+      "class": "chicken_quesadilla",
+      "total_images": 350,
+      "top1_correct": 337,
+      "top1_accuracy": 96.28571428571429,
+      "top3_70conf_correct": 330,
+      "top3_70conf_accuracy": 94.28571428571428,
+      "nonfood_in_top3_count": 1,
+      "nonfood_contamination_rate": 0.2857142857142857
+    },
+    {
+      "class": "chicken_tinola",
+      "total_images": 350,
+      "top1_correct": 345,
+      "top1_accuracy": 98.57142857142858,
+      "top3_70conf_correct": 342,
+      "top3_70conf_accuracy": 97.71428571428571,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "chicken_wings",
+      "total_images": 350,
+      "top1_correct": 322,
+      "top1_accuracy": 92.0,
+      "top3_70conf_correct": 303,
+      "top3_70conf_accuracy": 86.57142857142858,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "chocolate_cake",
+      "total_images": 350,
+      "top1_correct": 322,
+      "top1_accuracy": 92.0,
+      "top3_70conf_correct": 301,
+      "top3_70conf_accuracy": 86.0,
+      "nonfood_in_top3_count": 8,
+      "nonfood_contamination_rate": 2.2857142857142856
+    },
+    {
+      "class": "chocolate_mousse",
+      "total_images": 350,
+      "top1_correct": 326,
+      "top1_accuracy": 93.14285714285714,
+      "top3_70conf_correct": 303,
+      "top3_70conf_accuracy": 86.57142857142858,
+      "nonfood_in_top3_count": 7,
+      "nonfood_contamination_rate": 2.0
+    },
+    {
+      "class": "churros",
+      "total_images": 350,
+      "top1_correct": 344,
+      "top1_accuracy": 98.28571428571429,
+      "top3_70conf_correct": 338,
+      "top3_70conf_accuracy": 96.57142857142857,
+      "nonfood_in_top3_count": 15,
+      "nonfood_contamination_rate": 4.285714285714286
+    },
+    {
+      "class": "club_sandwich",
+      "total_images": 350,
+      "top1_correct": 341,
+      "top1_accuracy": 97.42857142857143,
+      "top3_70conf_correct": 338,
+      "top3_70conf_accuracy": 96.57142857142857,
+      "nonfood_in_top3_count": 5,
+      "nonfood_contamination_rate": 1.4285714285714286
+    },
+    {
+      "class": "cornsilog",
+      "total_images": 350,
+      "top1_correct": 335,
+      "top1_accuracy": 95.71428571428572,
+      "top3_70conf_correct": 316,
+      "top3_70conf_accuracy": 90.28571428571428,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "creme_brulee",
+      "total_images": 350,
+      "top1_correct": 340,
+      "top1_accuracy": 97.14285714285714,
+      "top3_70conf_correct": 331,
+      "top3_70conf_accuracy": 94.57142857142857,
+      "nonfood_in_top3_count": 1,
+      "nonfood_contamination_rate": 0.2857142857142857
+    },
+    {
+      "class": "crispy_pata",
+      "total_images": 350,
+      "top1_correct": 308,
+      "top1_accuracy": 88.0,
+      "top3_70conf_correct": 292,
+      "top3_70conf_accuracy": 83.42857142857143,
+      "nonfood_in_top3_count": 18,
+      "nonfood_contamination_rate": 5.142857142857142
+    },
+    {
+      "class": "cup_cakes",
+      "total_images": 350,
+      "top1_correct": 327,
+      "top1_accuracy": 93.42857142857143,
+      "top3_70conf_correct": 312,
+      "top3_70conf_accuracy": 89.14285714285714,
+      "nonfood_in_top3_count": 15,
+      "nonfood_contamination_rate": 4.285714285714286
+    },
+    {
+      "class": "daing_na_bangus",
+      "total_images": 350,
+      "top1_correct": 330,
+      "top1_accuracy": 94.28571428571428,
+      "top3_70conf_correct": 316,
+      "top3_70conf_accuracy": 90.28571428571428,
+      "nonfood_in_top3_count": 20,
+      "nonfood_contamination_rate": 5.714285714285714
+    },
+    {
+      "class": "dinakdakan",
+      "total_images": 350,
+      "top1_correct": 341,
+      "top1_accuracy": 97.42857142857143,
+      "top3_70conf_correct": 333,
+      "top3_70conf_accuracy": 95.14285714285714,
+      "nonfood_in_top3_count": 2,
+      "nonfood_contamination_rate": 0.5714285714285714
+    },
+    {
+      "class": "donuts",
+      "total_images": 350,
+      "top1_correct": 325,
+      "top1_accuracy": 92.85714285714286,
+      "top3_70conf_correct": 321,
+      "top3_70conf_accuracy": 91.71428571428571,
+      "nonfood_in_top3_count": 19,
+      "nonfood_contamination_rate": 5.428571428571429
+    },
+    {
+      "class": "dumplings",
+      "total_images": 350,
+      "top1_correct": 341,
+      "top1_accuracy": 97.42857142857143,
+      "top3_70conf_correct": 331,
+      "top3_70conf_accuracy": 94.57142857142857,
+      "nonfood_in_top3_count": 36,
+      "nonfood_contamination_rate": 10.285714285714285
+    },
+    {
+      "class": "eggs_benedict",
+      "total_images": 350,
+      "top1_correct": 336,
+      "top1_accuracy": 96.0,
+      "top3_70conf_correct": 334,
+      "top3_70conf_accuracy": 95.42857142857143,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "falafel",
+      "total_images": 350,
+      "top1_correct": 328,
+      "top1_accuracy": 93.71428571428572,
+      "top3_70conf_correct": 310,
+      "top3_70conf_accuracy": 88.57142857142857,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "fish_balls",
+      "total_images": 350,
+      "top1_correct": 342,
+      "top1_accuracy": 97.71428571428571,
+      "top3_70conf_correct": 339,
+      "top3_70conf_accuracy": 96.85714285714285,
+      "nonfood_in_top3_count": 4,
+      "nonfood_contamination_rate": 1.1428571428571428
+    },
+    {
+      "class": "fish_sinigang",
+      "total_images": 350,
+      "top1_correct": 334,
+      "top1_accuracy": 95.42857142857143,
+      "top3_70conf_correct": 319,
+      "top3_70conf_accuracy": 91.14285714285715,
+      "nonfood_in_top3_count": 1,
+      "nonfood_contamination_rate": 0.2857142857142857
+    },
+    {
+      "class": "french_fries",
+      "total_images": 350,
+      "top1_correct": 343,
+      "top1_accuracy": 98.0,
+      "top3_70conf_correct": 338,
+      "top3_70conf_accuracy": 96.57142857142857,
+      "nonfood_in_top3_count": 1,
+      "nonfood_contamination_rate": 0.2857142857142857
+    },
+    {
+      "class": "french_toast",
+      "total_images": 350,
+      "top1_correct": 315,
+      "top1_accuracy": 90.0,
+      "top3_70conf_correct": 295,
+      "top3_70conf_accuracy": 84.28571428571429,
+      "nonfood_in_top3_count": 3,
+      "nonfood_contamination_rate": 0.8571428571428572
+    },
+    {
+      "class": "fried_calamari",
+      "total_images": 350,
+      "top1_correct": 341,
+      "top1_accuracy": 97.42857142857143,
+      "top3_70conf_correct": 329,
+      "top3_70conf_accuracy": 94.0,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "fried_chicken",
+      "total_images": 350,
+      "top1_correct": 336,
+      "top1_accuracy": 96.0,
+      "top3_70conf_correct": 324,
+      "top3_70conf_accuracy": 92.57142857142857,
+      "nonfood_in_top3_count": 2,
+      "nonfood_contamination_rate": 0.5714285714285714
+    },
+    {
+      "class": "fried_rice",
+      "total_images": 350,
+      "top1_correct": 342,
+      "top1_accuracy": 97.71428571428571,
+      "top3_70conf_correct": 325,
+      "top3_70conf_accuracy": 92.85714285714286,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "frozen_yogurt",
+      "total_images": 350,
+      "top1_correct": 344,
+      "top1_accuracy": 98.28571428571429,
+      "top3_70conf_correct": 333,
+      "top3_70conf_accuracy": 95.14285714285714,
+      "nonfood_in_top3_count": 7,
+      "nonfood_contamination_rate": 2.0
+    },
+    {
+      "class": "garlic_bread",
+      "total_images": 350,
+      "top1_correct": 328,
+      "top1_accuracy": 93.71428571428572,
+      "top3_70conf_correct": 310,
+      "top3_70conf_accuracy": 88.57142857142857,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "garlic_buttered_shrimp",
+      "total_images": 350,
+      "top1_correct": 341,
+      "top1_accuracy": 97.42857142857143,
+      "top3_70conf_correct": 334,
+      "top3_70conf_accuracy": 95.42857142857143,
+      "nonfood_in_top3_count": 2,
+      "nonfood_contamination_rate": 0.5714285714285714
+    },
+    {
+      "class": "ginisang_munggo",
+      "total_images": 350,
+      "top1_correct": 344,
+      "top1_accuracy": 98.28571428571429,
+      "top3_70conf_correct": 338,
+      "top3_70conf_accuracy": 96.57142857142857,
+      "nonfood_in_top3_count": 7,
+      "nonfood_contamination_rate": 2.0
+    },
+    {
+      "class": "greek_salad",
+      "total_images": 350,
+      "top1_correct": 332,
+      "top1_accuracy": 94.85714285714286,
+      "top3_70conf_correct": 321,
+      "top3_70conf_accuracy": 91.71428571428571,
+      "nonfood_in_top3_count": 1,
+      "nonfood_contamination_rate": 0.2857142857142857
+    },
+    {
+      "class": "grilled_cheese_sandwich",
+      "total_images": 350,
+      "top1_correct": 322,
+      "top1_accuracy": 92.0,
+      "top3_70conf_correct": 300,
+      "top3_70conf_accuracy": 85.71428571428571,
+      "nonfood_in_top3_count": 1,
+      "nonfood_contamination_rate": 0.2857142857142857
+    },
+    {
+      "class": "grilled_salmon",
+      "total_images": 350,
+      "top1_correct": 330,
+      "top1_accuracy": 94.28571428571428,
+      "top3_70conf_correct": 322,
+      "top3_70conf_accuracy": 92.0,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "guacamole",
+      "total_images": 350,
+      "top1_correct": 334,
+      "top1_accuracy": 95.42857142857143,
+      "top3_70conf_correct": 327,
+      "top3_70conf_accuracy": 93.42857142857143,
+      "nonfood_in_top3_count": 38,
+      "nonfood_contamination_rate": 10.857142857142858
+    },
+    {
+      "class": "gyoza",
+      "total_images": 350,
+      "top1_correct": 342,
+      "top1_accuracy": 97.71428571428571,
+      "top3_70conf_correct": 335,
+      "top3_70conf_accuracy": 95.71428571428572,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "halo_halo",
+      "total_images": 350,
+      "top1_correct": 343,
+      "top1_accuracy": 98.0,
+      "top3_70conf_correct": 337,
+      "top3_70conf_accuracy": 96.28571428571429,
+      "nonfood_in_top3_count": 26,
+      "nonfood_contamination_rate": 7.428571428571429
+    },
+    {
+      "class": "hamburger",
+      "total_images": 350,
+      "top1_correct": 339,
+      "top1_accuracy": 96.85714285714285,
+      "top3_70conf_correct": 335,
+      "top3_70conf_accuracy": 95.71428571428572,
+      "nonfood_in_top3_count": 1,
+      "nonfood_contamination_rate": 0.2857142857142857
+    },
+    {
+      "class": "hot_dog",
+      "total_images": 350,
+      "top1_correct": 338,
+      "top1_accuracy": 96.57142857142857,
+      "top3_70conf_correct": 332,
+      "top3_70conf_accuracy": 94.85714285714286,
+      "nonfood_in_top3_count": 3,
+      "nonfood_contamination_rate": 0.8571428571428572
+    },
+    {
+      "class": "hotsilog",
+      "total_images": 350,
+      "top1_correct": 346,
+      "top1_accuracy": 98.85714285714286,
+      "top3_70conf_correct": 343,
+      "top3_70conf_accuracy": 98.0,
+      "nonfood_in_top3_count": 1,
+      "nonfood_contamination_rate": 0.2857142857142857
+    },
+    {
+      "class": "hummus",
+      "total_images": 350,
+      "top1_correct": 325,
+      "top1_accuracy": 92.85714285714286,
+      "top3_70conf_correct": 316,
+      "top3_70conf_accuracy": 90.28571428571428,
+      "nonfood_in_top3_count": 2,
+      "nonfood_contamination_rate": 0.5714285714285714
+    },
+    {
+      "class": "ice_cream",
+      "total_images": 350,
+      "top1_correct": 327,
+      "top1_accuracy": 93.42857142857143,
+      "top3_70conf_correct": 317,
+      "top3_70conf_accuracy": 90.57142857142857,
+      "nonfood_in_top3_count": 11,
+      "nonfood_contamination_rate": 3.1428571428571432
+    },
+    {
+      "class": "isaw_manok",
+      "total_images": 350,
+      "top1_correct": 342,
+      "top1_accuracy": 97.71428571428571,
+      "top3_70conf_correct": 336,
+      "top3_70conf_accuracy": 96.0,
+      "nonfood_in_top3_count": 26,
+      "nonfood_contamination_rate": 7.428571428571429
+    },
+    {
+      "class": "kikiam",
+      "total_images": 350,
+      "top1_correct": 341,
+      "top1_accuracy": 97.42857142857143,
+      "top3_70conf_correct": 335,
+      "top3_70conf_accuracy": 95.71428571428572,
+      "nonfood_in_top3_count": 4,
+      "nonfood_contamination_rate": 1.1428571428571428
+    },
+    {
+      "class": "kwek_kwek",
+      "total_images": 350,
+      "top1_correct": 344,
+      "top1_accuracy": 98.28571428571429,
+      "top3_70conf_correct": 337,
+      "top3_70conf_accuracy": 96.28571428571429,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "lasagna",
+      "total_images": 350,
+      "top1_correct": 323,
+      "top1_accuracy": 92.28571428571428,
+      "top3_70conf_correct": 306,
+      "top3_70conf_accuracy": 87.42857142857143,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "leche_flan",
+      "total_images": 350,
+      "top1_correct": 349,
+      "top1_accuracy": 99.71428571428571,
+      "top3_70conf_correct": 347,
+      "top3_70conf_accuracy": 99.14285714285714,
+      "nonfood_in_top3_count": 8,
+      "nonfood_contamination_rate": 2.2857142857142856
+    },
+    {
+      "class": "lechon_baboy",
+      "total_images": 350,
+      "top1_correct": 317,
+      "top1_accuracy": 90.57142857142857,
+      "top3_70conf_correct": 307,
+      "top3_70conf_accuracy": 87.71428571428571,
+      "nonfood_in_top3_count": 11,
+      "nonfood_contamination_rate": 3.1428571428571432
+    },
+    {
+      "class": "lechon_manok",
+      "total_images": 350,
+      "top1_correct": 326,
+      "top1_accuracy": 93.14285714285714,
+      "top3_70conf_correct": 315,
+      "top3_70conf_accuracy": 90.0,
+      "nonfood_in_top3_count": 7,
+      "nonfood_contamination_rate": 2.0
+    },
+    {
+      "class": "longganisa",
+      "total_images": 350,
+      "top1_correct": 332,
+      "top1_accuracy": 94.85714285714286,
+      "top3_70conf_correct": 322,
+      "top3_70conf_accuracy": 92.0,
+      "nonfood_in_top3_count": 1,
+      "nonfood_contamination_rate": 0.2857142857142857
+    },
+    {
+      "class": "longsilog",
+      "total_images": 350,
+      "top1_correct": 336,
+      "top1_accuracy": 96.0,
+      "top3_70conf_correct": 323,
+      "top3_70conf_accuracy": 92.28571428571428,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "lumpiang_shanghai",
+      "total_images": 350,
+      "top1_correct": 346,
+      "top1_accuracy": 98.85714285714286,
+      "top3_70conf_correct": 345,
+      "top3_70conf_accuracy": 98.57142857142858,
+      "nonfood_in_top3_count": 39,
+      "nonfood_contamination_rate": 11.142857142857142
+    },
+    {
+      "class": "macaroni_and_cheese",
+      "total_images": 350,
+      "top1_correct": 342,
+      "top1_accuracy": 97.71428571428571,
+      "top3_70conf_correct": 334,
+      "top3_70conf_accuracy": 95.42857142857143,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "macarons",
+      "total_images": 350,
+      "top1_correct": 345,
+      "top1_accuracy": 98.57142857142858,
+      "top3_70conf_correct": 339,
+      "top3_70conf_accuracy": 96.85714285714285,
+      "nonfood_in_top3_count": 27,
+      "nonfood_contamination_rate": 7.7142857142857135
+    },
+    {
+      "class": "mussels",
+      "total_images": 350,
+      "top1_correct": 340,
+      "top1_accuracy": 97.14285714285714,
+      "top3_70conf_correct": 338,
+      "top3_70conf_accuracy": 96.57142857142857,
+      "nonfood_in_top3_count": 15,
+      "nonfood_contamination_rate": 4.285714285714286
+    },
+    {
+      "class": "nachos",
+      "total_images": 350,
+      "top1_correct": 332,
+      "top1_accuracy": 94.85714285714286,
+      "top3_70conf_correct": 315,
+      "top3_70conf_accuracy": 90.0,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "non_food",
+      "total_images": 10168,
+      "top1_correct": 10164,
+      "top1_accuracy": 99.96066089693156,
+      "top3_70conf_correct": 10154,
+      "top3_70conf_accuracy": 99.86231313926042,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "omelette",
+      "total_images": 350,
+      "top1_correct": 326,
+      "top1_accuracy": 93.14285714285714,
+      "top3_70conf_correct": 308,
+      "top3_70conf_accuracy": 88.0,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "onion_rings",
+      "total_images": 350,
+      "top1_correct": 340,
+      "top1_accuracy": 97.14285714285714,
+      "top3_70conf_correct": 334,
+      "top3_70conf_accuracy": 95.42857142857143,
+      "nonfood_in_top3_count": 1,
+      "nonfood_contamination_rate": 0.2857142857142857
+    },
+    {
+      "class": "orange",
+      "total_images": 350,
+      "top1_correct": 348,
+      "top1_accuracy": 99.42857142857143,
+      "top3_70conf_correct": 348,
+      "top3_70conf_accuracy": 99.42857142857143,
+      "nonfood_in_top3_count": 207,
+      "nonfood_contamination_rate": 59.14285714285714
+    },
+    {
+      "class": "oysters",
+      "total_images": 350,
+      "top1_correct": 344,
+      "top1_accuracy": 98.28571428571429,
+      "top3_70conf_correct": 340,
+      "top3_70conf_accuracy": 97.14285714285714,
+      "nonfood_in_top3_count": 7,
+      "nonfood_contamination_rate": 2.0
+    },
+    {
+      "class": "pad_thai",
+      "total_images": 350,
+      "top1_correct": 340,
+      "top1_accuracy": 97.14285714285714,
+      "top3_70conf_correct": 333,
+      "top3_70conf_accuracy": 95.14285714285714,
+      "nonfood_in_top3_count": 1,
+      "nonfood_contamination_rate": 0.2857142857142857
+    },
+    {
+      "class": "palabok",
+      "total_images": 350,
+      "top1_correct": 338,
+      "top1_accuracy": 96.57142857142857,
+      "top3_70conf_correct": 330,
+      "top3_70conf_accuracy": 94.28571428571428,
+      "nonfood_in_top3_count": 3,
+      "nonfood_contamination_rate": 0.8571428571428572
+    },
+    {
+      "class": "pancakes",
+      "total_images": 350,
+      "top1_correct": 329,
+      "top1_accuracy": 94.0,
+      "top3_70conf_correct": 323,
+      "top3_70conf_accuracy": 92.28571428571428,
+      "nonfood_in_top3_count": 2,
+      "nonfood_contamination_rate": 0.5714285714285714
+    },
+    {
+      "class": "pancit_bihon",
+      "total_images": 350,
+      "top1_correct": 338,
+      "top1_accuracy": 96.57142857142857,
+      "top3_70conf_correct": 328,
+      "top3_70conf_accuracy": 93.71428571428572,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "pancit_canton",
+      "total_images": 350,
+      "top1_correct": 318,
+      "top1_accuracy": 90.85714285714286,
+      "top3_70conf_correct": 293,
+      "top3_70conf_accuracy": 83.71428571428572,
+      "nonfood_in_top3_count": 1,
+      "nonfood_contamination_rate": 0.2857142857142857
+    },
+    {
+      "class": "pizza",
+      "total_images": 350,
+      "top1_correct": 340,
+      "top1_accuracy": 97.14285714285714,
+      "top3_70conf_correct": 331,
+      "top3_70conf_accuracy": 94.57142857142857,
+      "nonfood_in_top3_count": 3,
+      "nonfood_contamination_rate": 0.8571428571428572
+    },
+    {
+      "class": "pork_adobo",
+      "total_images": 350,
+      "top1_correct": 322,
+      "top1_accuracy": 92.0,
+      "top3_70conf_correct": 298,
+      "top3_70conf_accuracy": 85.14285714285714,
+      "nonfood_in_top3_count": 6,
+      "nonfood_contamination_rate": 1.7142857142857144
+    },
+    {
+      "class": "pork_barbeque",
+      "total_images": 350,
+      "top1_correct": 331,
+      "top1_accuracy": 94.57142857142857,
+      "top3_70conf_correct": 321,
+      "top3_70conf_accuracy": 91.71428571428571,
+      "nonfood_in_top3_count": 19,
+      "nonfood_contamination_rate": 5.428571428571429
+    },
+    {
+      "class": "pork_bicol_express",
+      "total_images": 350,
+      "top1_correct": 344,
+      "top1_accuracy": 98.28571428571429,
+      "top3_70conf_correct": 337,
+      "top3_70conf_accuracy": 96.28571428571429,
+      "nonfood_in_top3_count": 1,
+      "nonfood_contamination_rate": 0.2857142857142857
+    },
+    {
+      "class": "pork_bistek",
+      "total_images": 350,
+      "top1_correct": 262,
+      "top1_accuracy": 74.85714285714286,
+      "top3_70conf_correct": 212,
+      "top3_70conf_accuracy": 60.57142857142858,
+      "nonfood_in_top3_count": 8,
+      "nonfood_contamination_rate": 2.2857142857142856
+    },
+    {
+      "class": "pork_chop",
+      "total_images": 350,
+      "top1_correct": 328,
+      "top1_accuracy": 93.71428571428572,
+      "top3_70conf_correct": 296,
+      "top3_70conf_accuracy": 84.57142857142857,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "pork_kare-kare",
+      "total_images": 350,
+      "top1_correct": 342,
+      "top1_accuracy": 97.71428571428571,
+      "top3_70conf_correct": 339,
+      "top3_70conf_accuracy": 96.85714285714285,
+      "nonfood_in_top3_count": 2,
+      "nonfood_contamination_rate": 0.5714285714285714
+    },
+    {
+      "class": "pork_menudo",
+      "total_images": 350,
+      "top1_correct": 335,
+      "top1_accuracy": 95.71428571428572,
+      "top3_70conf_correct": 320,
+      "top3_70conf_accuracy": 91.42857142857143,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "pork_sinigang",
+      "total_images": 350,
+      "top1_correct": 323,
+      "top1_accuracy": 92.28571428571428,
+      "top3_70conf_correct": 294,
+      "top3_70conf_accuracy": 84.0,
+      "nonfood_in_top3_count": 1,
+      "nonfood_contamination_rate": 0.2857142857142857
+    },
+    {
+      "class": "pork_sisig",
+      "total_images": 350,
+      "top1_correct": 312,
+      "top1_accuracy": 89.14285714285714,
+      "top3_70conf_correct": 291,
+      "top3_70conf_accuracy": 83.14285714285714,
+      "nonfood_in_top3_count": 3,
+      "nonfood_contamination_rate": 0.8571428571428572
+    },
+    {
+      "class": "prime_rib",
+      "total_images": 350,
+      "top1_correct": 323,
+      "top1_accuracy": 92.28571428571428,
+      "top3_70conf_correct": 313,
+      "top3_70conf_accuracy": 89.42857142857143,
+      "nonfood_in_top3_count": 2,
+      "nonfood_contamination_rate": 0.5714285714285714
+    },
+    {
+      "class": "pritong_galunggong",
+      "total_images": 350,
+      "top1_correct": 316,
+      "top1_accuracy": 90.28571428571428,
+      "top3_70conf_correct": 300,
+      "top3_70conf_accuracy": 85.71428571428571,
+      "nonfood_in_top3_count": 37,
+      "nonfood_contamination_rate": 10.571428571428571
+    },
+    {
+      "class": "pritong_tilapia",
+      "total_images": 350,
+      "top1_correct": 301,
+      "top1_accuracy": 86.0,
+      "top3_70conf_correct": 281,
+      "top3_70conf_accuracy": 80.28571428571428,
+      "nonfood_in_top3_count": 48,
+      "nonfood_contamination_rate": 13.714285714285715
+    },
+    {
+      "class": "puto",
+      "total_images": 350,
+      "top1_correct": 344,
+      "top1_accuracy": 98.28571428571429,
+      "top3_70conf_correct": 338,
+      "top3_70conf_accuracy": 96.57142857142857,
+      "nonfood_in_top3_count": 2,
+      "nonfood_contamination_rate": 0.5714285714285714
+    },
+    {
+      "class": "ramen",
+      "total_images": 350,
+      "top1_correct": 333,
+      "top1_accuracy": 95.14285714285714,
+      "top3_70conf_correct": 326,
+      "top3_70conf_accuracy": 93.14285714285714,
+      "nonfood_in_top3_count": 3,
+      "nonfood_contamination_rate": 0.8571428571428572
+    },
+    {
+      "class": "red_velvet_cake",
+      "total_images": 350,
+      "top1_correct": 336,
+      "top1_accuracy": 96.0,
+      "top3_70conf_correct": 326,
+      "top3_70conf_accuracy": 93.14285714285714,
+      "nonfood_in_top3_count": 22,
+      "nonfood_contamination_rate": 6.2857142857142865
+    },
+    {
+      "class": "samosa",
+      "total_images": 350,
+      "top1_correct": 339,
+      "top1_accuracy": 96.85714285714285,
+      "top3_70conf_correct": 330,
+      "top3_70conf_accuracy": 94.28571428571428,
+      "nonfood_in_top3_count": 1,
+      "nonfood_contamination_rate": 0.2857142857142857
+    },
+    {
+      "class": "sashimi",
+      "total_images": 350,
+      "top1_correct": 341,
+      "top1_accuracy": 97.42857142857143,
+      "top3_70conf_correct": 331,
+      "top3_70conf_accuracy": 94.57142857142857,
+      "nonfood_in_top3_count": 15,
+      "nonfood_contamination_rate": 4.285714285714286
+    },
+    {
+      "class": "sausage",
+      "total_images": 350,
+      "top1_correct": 348,
+      "top1_accuracy": 99.42857142857143,
+      "top3_70conf_correct": 347,
+      "top3_70conf_accuracy": 99.14285714285714,
+      "nonfood_in_top3_count": 20,
+      "nonfood_contamination_rate": 5.714285714285714
+    },
+    {
+      "class": "scallops",
+      "total_images": 350,
+      "top1_correct": 336,
+      "top1_accuracy": 96.0,
+      "top3_70conf_correct": 325,
+      "top3_70conf_accuracy": 92.85714285714286,
+      "nonfood_in_top3_count": 1,
+      "nonfood_contamination_rate": 0.2857142857142857
+    },
+    {
+      "class": "scrambled_eggs",
+      "total_images": 350,
+      "top1_correct": 340,
+      "top1_accuracy": 97.14285714285714,
+      "top3_70conf_correct": 337,
+      "top3_70conf_accuracy": 96.28571428571429,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "shrimp_sinigang",
+      "total_images": 350,
+      "top1_correct": 347,
+      "top1_accuracy": 99.14285714285714,
+      "top3_70conf_correct": 344,
+      "top3_70conf_accuracy": 98.28571428571429,
+      "nonfood_in_top3_count": 1,
+      "nonfood_contamination_rate": 0.2857142857142857
+    },
+    {
+      "class": "sipo_egg",
+      "total_images": 350,
+      "top1_correct": 349,
+      "top1_accuracy": 99.71428571428571,
+      "top3_70conf_correct": 348,
+      "top3_70conf_accuracy": 99.42857142857143,
+      "nonfood_in_top3_count": 3,
+      "nonfood_contamination_rate": 0.8571428571428572
+    },
+    {
+      "class": "spaghetti_bolognese",
+      "total_images": 350,
+      "top1_correct": 328,
+      "top1_accuracy": 93.71428571428572,
+      "top3_70conf_correct": 320,
+      "top3_70conf_accuracy": 91.42857142857143,
+      "nonfood_in_top3_count": 1,
+      "nonfood_contamination_rate": 0.2857142857142857
+    },
+    {
+      "class": "spaghetti_carbonara",
+      "total_images": 350,
+      "top1_correct": 342,
+      "top1_accuracy": 97.71428571428571,
+      "top3_70conf_correct": 337,
+      "top3_70conf_accuracy": 96.28571428571429,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "steak",
+      "total_images": 350,
+      "top1_correct": 311,
+      "top1_accuracy": 88.85714285714286,
+      "top3_70conf_correct": 294,
+      "top3_70conf_accuracy": 84.0,
+      "nonfood_in_top3_count": 2,
+      "nonfood_contamination_rate": 0.5714285714285714
+    },
+    {
+      "class": "strawberry",
+      "total_images": 350,
+      "top1_correct": 347,
+      "top1_accuracy": 99.14285714285714,
+      "top3_70conf_correct": 345,
+      "top3_70conf_accuracy": 98.57142857142858,
+      "nonfood_in_top3_count": 189,
+      "nonfood_contamination_rate": 54.0
+    },
+    {
+      "class": "strawberry_shortcake",
+      "total_images": 350,
+      "top1_correct": 329,
+      "top1_accuracy": 94.0,
+      "top3_70conf_correct": 315,
+      "top3_70conf_accuracy": 90.0,
+      "nonfood_in_top3_count": 0,
+      "nonfood_contamination_rate": 0.0
+    },
+    {
+      "class": "sunny_side_up",
+      "total_images": 350,
+      "top1_correct": 350,
+      "top1_accuracy": 100.0,
+      "top3_70conf_correct": 348,
+      "top3_70conf_accuracy": 99.42857142857143,
+      "nonfood_in_top3_count": 1,
+      "nonfood_contamination_rate": 0.2857142857142857
+    },
+    {
+      "class": "sushi",
+      "total_images": 350,
+      "top1_correct": 333,
+      "top1_accuracy": 95.14285714285714,
+      "top3_70conf_correct": 319,
+      "top3_70conf_accuracy": 91.14285714285715,
+      "nonfood_in_top3_count": 10,
+      "nonfood_contamination_rate": 2.857142857142857
+    },
+    {
+      "class": "tacos",
+      "total_images": 350,
+      "top1_correct": 330,
+      "top1_accuracy": 94.28571428571428,
+      "top3_70conf_correct": 319,
+      "top3_70conf_accuracy": 91.14285714285715,
+      "nonfood_in_top3_count": 1,
+      "nonfood_contamination_rate": 0.2857142857142857
+    },
+    {
+      "class": "taho",
+      "total_images": 350,
+      "top1_correct": 349,
+      "top1_accuracy": 99.71428571428571,
+      "top3_70conf_correct": 348,
+      "top3_70conf_accuracy": 99.42857142857143,
+      "nonfood_in_top3_count": 7,
+      "nonfood_contamination_rate": 2.0
+    },
+    {
+      "class": "takoyaki",
+      "total_images": 350,
+      "top1_correct": 345,
+      "top1_accuracy": 98.57142857142858,
+      "top3_70conf_correct": 333,
+      "top3_70conf_accuracy": 95.14285714285714,
+      "nonfood_in_top3_count": 3,
+      "nonfood_contamination_rate": 0.8571428571428572
+    },
+    {
+      "class": "tapsilog",
+      "total_images": 350,
+      "top1_correct": 335,
+      "top1_accuracy": 95.71428571428572,
+      "top3_70conf_correct": 329,
+      "top3_70conf_accuracy": 94.0,
+      "nonfood_in_top3_count": 2,
+      "nonfood_contamination_rate": 0.5714285714285714
+    },
+    {
+      "class": "tempura",
+      "total_images": 350,
+      "top1_correct": 348,
+      "top1_accuracy": 99.42857142857143,
+      "top3_70conf_correct": 347,
+      "top3_70conf_accuracy": 99.14285714285714,
+      "nonfood_in_top3_count": 2,
+      "nonfood_contamination_rate": 0.5714285714285714
+    },
+    {
+      "class": "tiramisu",
+      "total_images": 350,
+      "top1_correct": 321,
+      "top1_accuracy": 91.71428571428571,
+      "top3_70conf_correct": 313,
+      "top3_70conf_accuracy": 89.42857142857143,
+      "nonfood_in_top3_count": 6,
+      "nonfood_contamination_rate": 1.7142857142857144
+    },
+    {
+      "class": "tocilog",
+      "total_images": 350,
+      "top1_correct": 340,
+      "top1_accuracy": 97.14285714285714,
+      "top3_70conf_correct": 329,
+      "top3_70conf_accuracy": 94.0,
+      "nonfood_in_top3_count": 1,
+      "nonfood_contamination_rate": 0.2857142857142857
+    },
+    {
+      "class": "turon",
+      "total_images": 350,
+      "top1_correct": 336,
+      "top1_accuracy": 96.0,
+      "top3_70conf_correct": 316,
+      "top3_70conf_accuracy": 90.28571428571428,
+      "nonfood_in_top3_count": 5,
+      "nonfood_contamination_rate": 1.4285714285714286
+    },
+    {
+      "class": "tuyo",
+      "total_images": 350,
+      "top1_correct": 343,
+      "top1_accuracy": 98.0,
+      "top3_70conf_correct": 338,
+      "top3_70conf_accuracy": 96.57142857142857,
+      "nonfood_in_top3_count": 10,
+      "nonfood_contamination_rate": 2.857142857142857
+    },
+    {
+      "class": "waffles",
+      "total_images": 350,
+      "top1_correct": 334,
+      "top1_accuracy": 95.42857142857143,
+      "top3_70conf_correct": 325,
+      "top3_70conf_accuracy": 92.85714285714286,
+      "nonfood_in_top3_count": 22,
+      "nonfood_contamination_rate": 6.2857142857142865
+    },
+    {
+      "class": "white_rice",
+      "total_images": 350,
+      "top1_correct": 350,
+      "top1_accuracy": 100.0,
+      "top3_70conf_correct": 350,
+      "top3_70conf_accuracy": 100.0,
+      "nonfood_in_top3_count": 41,
+      "nonfood_contamination_rate": 11.714285714285715
+    }
+  ]
+}

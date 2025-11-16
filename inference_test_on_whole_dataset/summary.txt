@@ -1,0 +1,18 @@
+================================================================================
+QUICK SUMMARY
+================================================================================
+
+Total Images: 53918
+Total Classes: 126
+
+Overall Top-1 Accuracy: 96.21%
+Overall Top-3 at 70% Conf: 93.64%
+
+Performance Distribution (by Top-1 Accuracy):
+  Excellent (≥90%):  118 classes
+  Good (80-89%):       7 classes
+  Fair (70-79%):       1 classes
+  Poor (60-69%):       0 classes
+  Very Poor (<60%):    0 classes
+
+================================================================================

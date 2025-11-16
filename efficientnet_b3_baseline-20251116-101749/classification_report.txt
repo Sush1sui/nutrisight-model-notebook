@@ -1,0 +1,173 @@
+====================================================================================================
+Classification Report (Test Set)
+====================================================================================================
+
+Class                             Precision       Recall     F1-Score  Performance    Support
+----------------------------------------------------------------------------------------------------
+adobong_pusit                        97.14%       97.14%       97.14%    Excellent         35
+apple                                97.14%       97.14%       97.14%    Excellent         35
+arroz_caldo                          97.14%       97.14%       97.14%    Excellent         35
+baby_back_ribs                       83.33%       85.71%       84.51%         Good         35
+baked_tahong                         97.14%       97.14%       97.14%    Excellent         35
+balut                                97.22%      100.00%       98.59%    Excellent         35
+banana                               94.59%      100.00%       97.22%    Excellent         35
+beef_bistek                          63.64%       80.00%       70.89%         Fair         35
+beef_kaldereta                       83.78%       88.57%       86.11%         Good         35
+beef_sinigang                        77.42%       68.57%       72.73%         Fair         35
+beef_tartare                         96.15%       71.43%       81.97%         Good         35
+beignets                             94.44%       97.14%       95.77%    Excellent         35
+bibimbap                             88.24%       85.71%       86.96%         Good         35
+biko                                 91.67%       94.29%       92.96%    Excellent         35
+boiled_egg                           89.19%       94.29%       91.67%    Excellent         35
+bread_pudding                        84.00%       60.00%       70.00%         Fair         35
+caesar_salad                         88.57%       88.57%       88.57%         Good         35
+cannoli                              83.78%       88.57%       86.11%         Good         35
+cheesecake                           76.67%       65.71%       70.77%         Fair         35
+chicken_adobo                        78.95%       85.71%       82.19%         Good         35
+chicken_afritada                     90.32%       80.00%       84.85%         Good         35
+chicken_curry                        83.33%       71.43%       76.92%         Fair         35
+chicken_quesadilla                   83.78%       88.57%       86.11%         Good         35
+chicken_tinola                      100.00%      100.00%      100.00%    Excellent         35
+chicken_wings                        88.24%       85.71%       86.96%         Good         35
+chocolate_cake                       88.89%       68.57%       77.42%         Fair         35
+chocolate_mousse                     65.79%       71.43%       68.49%         Poor         35
+churros                              85.00%       97.14%       90.67%    Excellent         35
+club_sandwich                        88.89%       91.43%       90.14%    Excellent         35
+cornsilog                            97.14%       97.14%       97.14%    Excellent         35
+creme_brulee                         82.50%       94.29%       88.00%         Good         35
+crispy_pata                         100.00%       94.29%       97.06%    Excellent         35
+cup_cakes                            89.66%       74.29%       81.25%         Good         35
+daing_na_bangus                      85.37%      100.00%       92.11%    Excellent         35
+dinakdakan                           88.57%       88.57%       88.57%         Good         35
+donuts                               80.00%       68.57%       73.85%         Fair         35
+dumplings                            94.29%       94.29%       94.29%    Excellent         35
+eggs_benedict                        90.62%       82.86%       86.57%         Good         35
+falafel                              85.19%       65.71%       74.19%         Fair         35
+fish_balls                           89.19%       94.29%       91.67%    Excellent         35
+fish_sinigang                        91.67%       94.29%       92.96%    Excellent         35
+french_fries                         96.97%       91.43%       94.12%    Excellent         35
+french_toast                         77.42%       68.57%       72.73%         Fair         35
+fried_calamari                       88.24%       85.71%       86.96%         Good         35
+fried_chicken                        91.89%       97.14%       94.44%    Excellent         35
+fried_rice                           78.38%       82.86%       80.56%         Good         35
+frozen_yogurt                        87.18%       97.14%       91.89%    Excellent         35
+garlic_bread                         82.35%       80.00%       81.16%         Good         35
+garlic_buttered_shrimp               94.59%      100.00%       97.22%    Excellent         35
+ginisang_munggo                      94.44%       97.14%       95.77%    Excellent         35
+greek_salad                          96.97%       91.43%       94.12%    Excellent         35
+grilled_cheese_sandwich              79.31%       65.71%       71.88%         Fair         35
+grilled_salmon                       78.38%       82.86%       80.56%         Good         35
+guacamole                            86.11%       88.57%       87.32%         Good         35
+gyoza                                86.11%       88.57%       87.32%         Good         35
+halo_halo                           100.00%      100.00%      100.00%    Excellent         35
+hamburger                            82.35%       80.00%       81.16%         Good         35
+hot_dog                              81.58%       88.57%       84.93%         Good         35
+hotsilog                             94.44%       97.14%       95.77%    Excellent         35
+hummus                               96.15%       71.43%       81.97%         Good         35
+ice_cream                            93.10%       77.14%       84.38%         Good         35
+isaw_manok                           92.11%      100.00%       95.89%    Excellent         35
+kikiam                               94.12%       91.43%       92.75%    Excellent         35
+kwek_kwek                            97.06%       94.29%       95.65%    Excellent         35
+lasagna                              76.32%       82.86%       79.45%         Fair         35
+leche_flan                           97.22%      100.00%       98.59%    Excellent         35
+lechon_baboy                         86.67%       74.29%       80.00%         Good         35
+lechon_manok                         86.84%       94.29%       90.41%    Excellent         35
+longganisa                           97.06%       94.29%       95.65%    Excellent         35
+longsilog                            86.49%       91.43%       88.89%         Good         35
+lumpiang_shanghai                    86.84%       94.29%       90.41%    Excellent         35
+macaroni_and_cheese                  79.49%       88.57%       83.78%         Good         35
+macarons                             90.91%       85.71%       88.24%         Good         35
+mussels                              94.29%       94.29%       94.29%    Excellent         35
+nachos                               87.50%       80.00%       83.58%         Good         35
+non_food                             94.27%       99.62%       96.87%    Excellent        264
+omelette                             69.44%       71.43%       70.42%         Fair         35
+onion_rings                          93.55%       82.86%       87.88%         Good         35
+orange                              100.00%       97.14%       98.55%    Excellent         35
+oysters                              97.14%       97.14%       97.14%    Excellent         35
+pad_thai                             86.11%       88.57%       87.32%         Good         35
+palabok                              93.94%       88.57%       91.18%    Excellent         35
+pancakes                             75.00%       85.71%       80.00%         Good         35
+pancit_bihon                         88.89%       91.43%       90.14%    Excellent         35
+pancit_canton                        93.75%       85.71%       89.55%         Good         35
+pizza                                85.29%       82.86%       84.06%         Good         35
+pork_adobo                           96.97%       91.43%       94.12%    Excellent         35
+pork_barbeque                        93.94%       88.57%       91.18%    Excellent         35
+pork_bicol_express                   97.14%       97.14%       97.14%    Excellent         35
+pork_bistek                          78.26%       51.43%       62.07%         Poor         35
+pork_chop                            63.16%       68.57%       65.75%         Poor         35
+pork_kare-kare                       83.33%       85.71%       84.51%         Good         35
+pork_menudo                          88.89%       91.43%       90.14%    Excellent         35
+pork_sinigang                        73.81%       88.57%       80.52%         Good         35
+pork_sisig                           88.57%       88.57%       88.57%         Good         35
+prime_rib                            89.29%       71.43%       79.37%         Fair         35
+pritong_galunggong                   94.44%       97.14%       95.77%    Excellent         35
+pritong_tilapia                      91.43%       91.43%       91.43%    Excellent         35
+puto                                 89.19%       94.29%       91.67%    Excellent         35
+ramen                                91.18%       88.57%       89.86%         Good         35
+red_velvet_cake                      84.21%       91.43%       87.67%         Good         35
+samosa                               78.57%       94.29%       85.71%         Good         35
+sashimi                              96.77%       85.71%       90.91%    Excellent         35
+sausage                              92.11%      100.00%       95.89%    Excellent         35
+scallops                             72.50%       82.86%       77.33%         Fair         35
+scrambled_eggs                       88.57%       88.57%       88.57%         Good         35
+shrimp_sinigang                      94.59%      100.00%       97.22%    Excellent         35
+sipo_egg                             92.11%      100.00%       95.89%    Excellent         35
+spaghetti_bolognese                  85.29%       82.86%       84.06%         Good         35
+spaghetti_carbonara                  89.47%       97.14%       93.15%    Excellent         35
+steak                                62.50%       71.43%       66.67%         Poor         35
+strawberry                           97.22%      100.00%       98.59%    Excellent         35
+strawberry_shortcake                 76.47%       74.29%       75.36%         Fair         35
+sunny_side_up                        89.74%      100.00%       94.59%    Excellent         35
+sushi                                87.10%       77.14%       81.82%         Good         35
+tacos                                86.11%       88.57%       87.32%         Good         35
+taho                                100.00%      100.00%      100.00%    Excellent         35
+takoyaki                             91.89%       97.14%       94.44%    Excellent         35
+tapsilog                             80.49%       94.29%       86.84%         Good         35
+tempura                              94.59%      100.00%       97.22%    Excellent         35
+tiramisu                             73.33%       62.86%       67.69%         Poor         35
+tocilog                              96.88%       88.57%       92.54%    Excellent         35
+turon                                90.62%       82.86%       86.57%         Good         35
+tuyo                                100.00%       94.29%       97.06%    Excellent         35
+waffles                              83.78%       88.57%       86.11%         Good         35
+white_rice                          100.00%      100.00%      100.00%    Excellent         35
+----------------------------------------------------------------------------------------------------
+Macro Average                        88.17%       87.71%       87.71%         Good       4639
+Weighted Average                     88.47%       88.29%       88.16%         Good       4639
+Overall Accuracy                       88.29%        4639
+
+====================================================================================================
+F1 Score Interpretation Guide
+====================================================================================================
+
+F1 Score is the harmonic mean of precision and recall:
+  - F1 = 2 × (Precision × Recall) / (Precision + Recall)
+  - Ranges from 0% (worst) to 100% (perfect)
+
+Performance Categories:
+  ≥ 90%:  Excellent   - Outstanding performance
+  80-89%: Good        - Strong performance with minor errors
+  70-79%: Fair        - Moderate performance, noticeable errors
+  60-69%: Poor        - Weak performance, significant errors
+  < 60%:  Very Poor   - Unacceptable performance, major issues
+
+Metrics Explained:
+  • Precision: Of all predictions for this class, how many were correct?
+               (Higher = fewer false positives)
+  • Recall:    Of all actual instances of this class, how many were found?
+               (Higher = fewer false negatives)
+  • F1-Score:  Balanced measure of both precision and recall
+  • Support:   Number of actual instances of this class in test set
+
+====================================================================================================
+Model Performance Distribution
+====================================================================================================
+
+Excellent (≥90%):   59 classes (46.83%)
+Good (80-89%):      47 classes (37.30%)
+Fair (70-79%):      15 classes (11.90%)
+Poor (60-69%):       5 classes ( 3.97%)
+Critical (<60%):     0 classes ( 0.00%)
+
+Total Classes:     126
+Overall F1 (Macro): 87.71%
+Overall F1 (Weighted): 88.16%

@@ -45,7 +45,7 @@ This research successfully developed a **126-class food recognition model** that
 - [Latest Training Run](#-latest-training-run-126-class-model) ← Current model results
 - [Whole Dataset Validation](#-whole-dataset-validation-results) ← Real-world performance
 - [Key Research Findings](#-key-research-findings) ← Important for thesis
-- [Defense & Speaker Materials](#-defense--speaker-materials) ← Q&A, cheat-sheet & notes
+- [Defense & Speaker Materials](#defense--speaker-materials) ← Q&A, cheat-sheet & notes
 
 **Research Background:**
 
@@ -916,6 +916,8 @@ _Note: These files are generated during training and used by `confusion_matrix_a
 ### 📌 Confusion Matrix — Short version shown in paper
 
 For clarity in the thesis, we show a focused "Top‑20" confusion matrix (Test set) that highlights the most important per-class confusions and commonly misclassified pairs. The full 126×126 matrix is available in the notebook `confusion_matrix_all_classes.ipynb` (and as `confusion_matrix_all_classes.png`) in the repository — we avoid printing the full matrix in the paper because it is dense and unreadable at publication scale. The matrix is provided both as absolute counts and normalized per true-class to show relative error rates; top confusions are extracted by masking the diagonal and ranking off-diagonal entries.
+
+<a id="defense--speaker-materials"></a>
 
 ### 🎙️ Defense & Speaker Materials
 
